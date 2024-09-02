@@ -1,0 +1,530 @@
+﻿<DataTemplate	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+				xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                xmlns:FlsBase="clr-namespace:Fls.Core.Hmi.UI.PA;assembly=Fls.Core.Hmi.UI"
+                xmlns:EccFace="clr-namespace:Fls.Ecc.Pnt.UI.Faceplate.PA;assembly=Fls.Ecc.Pnt.UI.Faceplate">
+<!--_____________________________________________________________________________________________________________________________
+
+	Build 001 -             - First Release
+	
+
+
+_____________________________________________________________________________________________________________________________-->	
+	<Grid Width="600" Resources="{FlsBase:RetrieveStyleFile AcesysV8.Styles}" FlsBase:ExtendOwner.ExtendObject="{x:Type EccFace:FaceplateViewModel}">
+		<Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+			
+			<Grid.Resources>
+				<EccFace:DataContainer  x:Key="MasterData"  LoadBlockparameters="true" LoadStatistics="True"/>
+			</Grid.Resources>
+
+			<Grid.ColumnDefinitions>
+			  <ColumnDefinition Width="2.0*" />
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+			  <RowDefinition Height="Auto" />
+			  <RowDefinition Height="Auto" />
+			  <RowDefinition Name="Touch" Height="Auto"/>
+			</Grid.RowDefinitions>
+
+			<!--Device Simulation frame -->
+             <Rectangle Stroke="Yellow" StrokeThickness="3" Grid.RowSpan="3" Visibility="{Binding Block[SIM_ACTIVE].Value, Source={StaticResource MasterData}, Converter={FlsBase:ObjectToVisibility True, Collapsed} ,FallbackValue=Collapsed}"/>
+             <FlsBase:DynamicSymbol FileName="AcesysV8.FP_Header_Info" TagCode="{Binding Owner.TagCode, Source={StaticResource MasterData}}" Area="{Binding Owner.Area, Source={StaticResource MasterData}}"/>
+		   
+			<TabControl Grid.Row="1" TabStripPlacement="Right"  Height="500" >  	
+				
+		<TabItem Header="{FlsBase:LangByCaption Fls.Language.IUSysV8::ACS880V2_Tab.Statusword}" > 
+				  
+				<Grid Grid.IsSharedSizeScope="True">
+				  <Grid.RowDefinitions>
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="*" />
+				 </Grid.RowDefinitions>
+				  <Grid.ColumnDefinitions>
+					<ColumnDefinition Width="50*"/>
+					<ColumnDefinition Width="50*"/>
+				</Grid.ColumnDefinitions>					
+                 <GroupBox Header="{FlsBase:LangByCaption Fls.Language.IUSysV8::ACS880V2_Grp.Statusword}">
+				<Grid>
+				  <Grid.RowDefinitions>
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />					
+					<RowDefinition Height="*" />
+				 </Grid.RowDefinitions>
+				  <Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+
+						<EccFace:EccItemsControl  TextBlock.FontSize="18" FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_BlkValDesc" 
+											        BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+											        CommonData="Language#Show_"
+											        ItemsSpecification="INVT350_RunState"/>	
+						<TextBlock Grid.Row="1" Margin="20,1,1,1" Text="{FlsBase:LangByCaption Fls.Ecc.Pnt.Config::Alg.INVT350.RunState.1}"  Style="{FlsBase:Retrieve Language, AcesysV8.Styles}" />													
+						<TextBlock Grid.Row="2" Margin="20,1,1,1" Text="{FlsBase:LangByCaption Fls.Ecc.Pnt.Config::Alg.INVT350.RunState.2}"  Style="{FlsBase:Retrieve Language, AcesysV8.Styles}" />
+						<TextBlock Grid.Row="3" Margin="20,1,1,1" Text="{FlsBase:LangByCaption Fls.Ecc.Pnt.Config::Alg.INVT350.RunState.3}"  Style="{FlsBase:Retrieve Language, AcesysV8.Styles}" />																			
+						<TextBlock Grid.Row="4" Margin="20,1,1,1" Text="{FlsBase:LangByCaption Fls.Ecc.Pnt.Config::Alg.INVT350.RunState.4}"  Style="{FlsBase:Retrieve Language, AcesysV8.Styles}" />
+						<TextBlock Grid.Row="5" Margin="20,1,1,1" Text="{FlsBase:LangByCaption Fls.Ecc.Pnt.Config::Alg.INVT350.RunState.5}"  Style="{FlsBase:Retrieve Language, AcesysV8.Styles}" />	
+						
+						<EccFace:EccItemsControl  Grid.Row="6"	TextBlock.FontSize="18" FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_BlkValDesc" 
+											        BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+											        CommonData="Language#Show_"
+											        ItemsSpecification="INVT350_RunStopMode"/>
+
+						<TextBlock Grid.Row="7" Margin="20,1,1,1" Text="{FlsBase:LangByCaption Fls.Ecc.Pnt.Config::Alg.INVT350.Mode.Keypad}"  Style="{FlsBase:Retrieve Language, AcesysV8.Styles}" />
+						<TextBlock Grid.Row="8" Margin="20,1,1,1" Text="{FlsBase:LangByCaption Fls.Ecc.Pnt.Config::Alg.INVT350.Mode.Terminal}"  Style="{FlsBase:Retrieve Language, AcesysV8.Styles}" />
+						<TextBlock Grid.Row="9" Margin="20,1,1,1" Text="{FlsBase:LangByCaption Fls.Ecc.Pnt.Config::Alg.INVT350.Mode.Comm}"  Style="{FlsBase:Retrieve Language, AcesysV8.Styles}" />
+						
+						<EccFace:EccItemsControl   Grid.Row="10" FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_LampLine"
+									                BlockParameters="{Binding Block, Source={StaticResource MasterData}}" 
+												    CommonData="Show_#ACESYS_"
+												    ItemsSpecification="ACS880_SB_8#08#Acesys.On#Acesys.Alarm;
+																        ACS880_SB_9#09#Acesys.On#Acesys.Off;
+																        ACS880_SB_10#10#Acesys.On#Acesys.Off;
+																		ACS880_SB_11#11#Acesys.On#Acesys.Off;
+																		ACS880_SB_12#12#Acesys.Alarm#Acesys.Off;
+																        ACS880_SB_15#15#Acesys.On#Acesys.Off" />
+
+								</Grid>
+					</GroupBox>
+
+					<GroupBox Grid.Column="1" Header="{FlsBase:LangByCaption Fls.Language.IUSysV8::ACS880V2_Grp.StatusInput}">
+				<Grid>
+				  <Grid.RowDefinitions>
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="*" />
+				 </Grid.RowDefinitions>
+				  <Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+
+							
+						 <EccFace:EccItemsControl   FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_LampLine"
+									                BlockParameters="{Binding Block, Source={StaticResource MasterData}}" 
+												    CommonData="Show_#ACESYS_"
+												    ItemsSpecification="ACS880_Inp_0#NOTXT#Acesys.On#Acesys.Alarm" />
+
+						<EccFace:EccItemsControl Name="LSTP_A" Grid.Row="1"  FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_LampLine"
+									                BlockParameters="{Binding Block, Source={StaticResource MasterData}}" 
+												    CommonData="Show_#ACESYS_"
+												    ItemsSpecification="ACS880_Inp_1#NOTXT#Acesys.On#Acesys.Alarm" />
+                       
+																       
+						<EccFace:EccItemsControl Name="LSTR1" Grid.Row="2" FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_LampLine"
+									                         BlockParameters="{Binding Block, Source={StaticResource MasterData}}" 
+													         CommonData="Show_#ACESYS_"
+													         ItemsSpecification="ACS880_Inp_2#NOTXT#Acesys.On#Acesys.Off"/>
+									
+									
+						<EccFace:EccItemsControl Name="LSTR2" Grid.Row="3"   FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_LampLine"
+									                         BlockParameters="{Binding Block, Source={StaticResource MasterData}}" 
+													         CommonData="Show_#ACESYS_"
+													         ItemsSpecification="ACS880_Inp_3#NOTXT#Acesys.On#Acesys.Off"/>
+						
+						<EccFace:EccItemsControl  Grid.Row="4" FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_LampLine" Opacity="0.2"
+									                BlockParameters="{Binding Block, Source={StaticResource MasterData}}" 
+												    CommonData="Show_#ACESYS_"
+												    ItemsSpecification="ACS880_Inp_6#NOTXT#Acesys.Off#Acesys.Off;
+																		ACS880_Inp_6#NOTXT#Acesys.Off#Acesys.Off;
+																		ACS880_Inp_6#NOTXT#Acesys.Off#Acesys.Off;
+																		ACS880_Inp_6#NOTXT#Acesys.Off#Acesys.Off;
+																		ACS880_Inp_6#NOTXT#Acesys.Off#Acesys.Off;
+																		ACS880_Inp_6#NOTXT#Acesys.Off#Acesys.Off;
+																		ACS880_Inp_6#NOTXT#Acesys.Off#Acesys.Off;
+																		ACS880_Inp_6#NOTXT#Acesys.Off#Acesys.Off;
+																		ACS880_Inp_6#NOTXT#Acesys.Off#Acesys.Off;
+																		ACS880_Inp_6#NOTXT#Acesys.Off#Acesys.Off;
+																		ACS880_Inp_6#NOTXT#Acesys.Off#Acesys.Off;
+																		ACS880_Inp_6#NOTXT#Acesys.Off#Acesys.Off" />	
+
+								</Grid>
+					</GroupBox>
+					
+				               	
+				  </Grid>				
+			  </TabItem>
+	  
+	  <TabItem Header="{FlsBase:LangByCaption Fls.Language.IUSysV8::ACS880V2_Tab.Controlword}" > 
+				  
+				<Grid Grid.IsSharedSizeScope="True" >
+				  <Grid.RowDefinitions>
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="*" />
+				 </Grid.RowDefinitions>
+				  <Grid.ColumnDefinitions>
+					<ColumnDefinition Width="0.5*"/>
+					<ColumnDefinition Width="0.5*"/>
+				</Grid.ColumnDefinitions>					
+                 <GroupBox Grid.RowSpan="3" Header="{FlsBase:LangByCaption Fls.Language.IUSysV8::ACS880V2_Grp.Controlword}">
+				 <Grid>
+				  <Grid.RowDefinitions>
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="*" />
+				 </Grid.RowDefinitions>
+				 <Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto"/>
+					<ColumnDefinition Width="Auto"/>
+					<ColumnDefinition Width="*"/>
+				 </Grid.ColumnDefinitions>
+
+						<EccFace:EccItemsControl  Grid.Row="0" TextBlock.FontSize="18" FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_BlkValDesc" 
+											        BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+											        CommonData="Language#Show_"
+											        ItemsSpecification="INVT350_CtrlCmd"/>	
+													
+						<TextBlock Grid.Row="1" Margin="20,1,1,1" Text="{FlsBase:LangByCaption Fls.Ecc.Pnt.Config::Alg.INVT350.Ctrl.1}"  Style="{FlsBase:Retrieve Language, AcesysV8.Styles}" />
+						<TextBlock Grid.Row="2" Margin="20,1,1,1" Text="{FlsBase:LangByCaption Fls.Ecc.Pnt.Config::Alg.INVT350.Ctrl.2}"  Style="{FlsBase:Retrieve Language, AcesysV8.Styles}" />
+						<TextBlock Grid.Row="3" Margin="20,1,1,1" Text="{FlsBase:LangByCaption Fls.Ecc.Pnt.Config::Alg.INVT350.Ctrl.3}"  Style="{FlsBase:Retrieve Language, AcesysV8.Styles}" />
+						<TextBlock Grid.Row="4" Margin="20,1,1,1" Text="{FlsBase:LangByCaption Fls.Ecc.Pnt.Config::Alg.INVT350.Ctrl.4}"  Style="{FlsBase:Retrieve Language, AcesysV8.Styles}" />
+						<TextBlock Grid.Row="5" Margin="20,1,1,1" Text="{FlsBase:LangByCaption Fls.Ecc.Pnt.Config::Alg.INVT350.Ctrl.5}"  Style="{FlsBase:Retrieve Language, AcesysV8.Styles}" />
+						<TextBlock Grid.Row="6" Margin="20,1,1,1" Text="{FlsBase:LangByCaption Fls.Ecc.Pnt.Config::Alg.INVT350.Ctrl.6}"  Style="{FlsBase:Retrieve Language, AcesysV8.Styles}" />
+						<TextBlock Grid.Row="7" Margin="20,1,1,1" Text="{FlsBase:LangByCaption Fls.Ecc.Pnt.Config::Alg.INVT350.Ctrl.7}"  Style="{FlsBase:Retrieve Language, AcesysV8.Styles}" />
+						<TextBlock Grid.Row="8" Margin="20,1,1,1" Text="{FlsBase:LangByCaption Fls.Ecc.Pnt.Config::Alg.INVT350.Ctrl.8}"  Style="{FlsBase:Retrieve Language, AcesysV8.Styles}" />
+							
+					    <EccFace:EccItemsControl  Grid.Row="9" FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_LampLine"
+									                         BlockParameters="{Binding Block, Source={StaticResource MasterData}}" 
+													         CommonData="Show_#ACESYS_"
+													         ItemsSpecification="
+																        ACS880_CB_8#NOTXT#Acesys.On#Acesys.Off;
+																        ACS880_CB_9#NOTXT#Acesys.On#Acesys.Off;
+																        ACS880_CB_10#NOTXT#Acesys.On#Acesys.Off;
+																        ACS880_CB_11#NOTXT#Acesys.On#Acesys.Off;
+																        ACS880_CB_12#NOTXT#Acesys.On#Acesys.Off;
+																        ACS880_CB_13#NOTXT#Acesys.On#Acesys.Off;
+																        ACS880_CB_14#NOTXT#Acesys.On#Acesys.Off; 
+																        ACS880_CB_15#NOTXT#Acesys.On#Acesys.Off" />
+																		
+
+				 </Grid>		
+				</GroupBox>
+
+					
+				 <GroupBox Grid.Column="1" Header="{FlsBase:LangByCaption Fls.Language.IUSysV8::ACS880V2_Grp.Selections}">
+				
+				<Grid>
+					
+				  <Grid.RowDefinitions>
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="*" />
+				 </Grid.RowDefinitions>
+				  	
+				
+					
+				<EccFace:EccContentControl FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_CheckBitLine"
+								 BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+								 ItemSpecification="ACS880_Sel_Coast"/>
+				<EccFace:EccContentControl Grid.Row="1" FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_CheckBitLine" 
+								 BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+								 ItemSpecification="ACS880_Sel_Ramp"/>
+				
+				
+			
+				</Grid>
+				</GroupBox>
+
+				<GroupBox  Grid.Row="1" Grid.Column="1" Header="{FlsBase:LangByCaption Fls.Language.IUSysV8::Grp.ACS880V2_AnalogSP}" Grid.IsSharedSizeScope="True" >
+					<Grid>
+						                     
+						
+						
+						
+						 <EccFace:EccItemsControl  Grid.Column="1"	FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_BlkValDesc" 
+											        BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+											        CommonData="Language#Show_"
+											        ItemsSpecification="ACS880_SpeedSP_Raw"/>
+
+						
+					   </Grid>
+					</GroupBox>
+
+
+				
+
+
+				<GroupBox Name="Grp_SpeedMin" Grid.Row="2" Grid.Column="1" Header="{FlsBase:LangByCaption Fls.Language.IUSysV8::ACS880V2_Grp.Speedmin}">
+				
+				<Grid>
+					
+				
+					
+				<EccFace:EccItemsControl    FlsBase:Info.EntrySymbolTemplate="AcesysV8.FP_Template_IOFieldEntryLine" HorizontalAlignment="Left"
+													CommonData="Language##Show_" 
+													BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+					 			   					ItemsSpecification="ACS880_LimitMinSP"/>	
+					
+				
+				</Grid>
+					
+				</GroupBox>
+					               	
+	</Grid>				
+  </TabItem>
+
+
+
+			<TabItem Header="{FlsBase:LangByCaption Fls.Language.IUSysV8::ACS880V2_Tab.Analog}" >   
+	     	<Grid>			
+					<Grid.RowDefinitions>
+					  <RowDefinition Height="Auto" />
+					  <RowDefinition Height="Auto" />
+					  <RowDefinition Height="*" />
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="auto" />
+						<ColumnDefinition Width="*" />
+					</Grid.ColumnDefinitions>
+
+					<GroupBox Grid.ColumnSpan="3" Header="{FlsBase:LangByCaption Fls.Language.IUSysV8::ACS880V2_Grp.AnalogFB}" Grid.Row="0" Grid.IsSharedSizeScope="True" >
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="auto"/>
+							<RowDefinition Height="auto"/>
+							<RowDefinition Height="auto"/>
+							<RowDefinition Height="auto"/>
+							<RowDefinition Height="auto"/>
+							<RowDefinition Height="auto"/>
+							<RowDefinition Height="*"/>
+						</Grid.RowDefinitions>
+
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="0.8*"/>
+							<ColumnDefinition Width="0.9*"/>
+							<ColumnDefinition Width="*"/>
+						</Grid.ColumnDefinitions>
+
+						<TextBlock Grid.Column="1" Text="{FlsBase:LangByCaption Fls.Language.IUSysV8::ACS880V2_Grp.AnalogRaw}"  Style="{FlsBase:Retrieve Language, AcesysV8.Styles}" />
+						<TextBlock Grid.Column="2" Text="{FlsBase:LangByCaption Fls.Language.IUSysV8::ACS880V2_Grp.AnalogScal}"  Style="{FlsBase:Retrieve Language, AcesysV8.Styles}" />
+						
+
+                        <TextBlock Grid.Row="1" Text="{FlsBase:LangByCaption Fls.Language.IUSysV8::Alg.ACS880V2_Speed_Raw}"  Style="{FlsBase:Retrieve Language, AcesysV8.Styles}" />
+						<TextBlock Grid.Row="2" Text="{FlsBase:LangByCaption Fls.Language.IUSysV8::Alg.ACS880V2_Power_Raw}"  Style="{FlsBase:Retrieve Language, AcesysV8.Styles}" />
+						<TextBlock Grid.Row="3" Text="{FlsBase:LangByCaption Fls.Language.IUSysV8::Alg.ACS880V2_Current_Raw}"  Style="{FlsBase:Retrieve Language, AcesysV8.Styles}" />
+						<TextBlock Grid.Row="4" Text="{FlsBase:LangByCaption Fls.Language.IUSysV8::Alg.ACS880V2_Speed_Max_Raw}"  Style="{FlsBase:Retrieve Language, AcesysV8.Styles}" />
+						<TextBlock Grid.Row="5" Text="{FlsBase:LangByCaption Fls.Language.IUSysV8::Alg.ACS880V2_Speed_Min_Raw}"  Style="{FlsBase:Retrieve Language, AcesysV8.Styles}" />
+						<TextBlock Grid.Row="6" Name="TQ_A" Text="{FlsBase:LangByCaption Fls.Language.IUSysV8::Alg.ACS880V2_Torque_Raw}"  Style="{FlsBase:Retrieve Language, AcesysV8.Styles}" />
+						
+						
+						<EccFace:EccItemsControl  Grid.Row="1" Grid.Column="1"	FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_BlkVal" 
+											        BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+											        CommonData="Language#Show_"
+											        ItemsSpecification="ACS880_Speed_Raw"/>
+
+						<EccFace:EccItemsControl Grid.Row="2" Grid.Column="1"	FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_BlkVal" 
+											        BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+											        CommonData="Language#Show_"
+											        ItemsSpecification="ACS880_Power_Raw"/>
+
+                        <EccFace:EccItemsControl Grid.Row="3" Grid.Column="1"	FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_BlkVal" 
+											        BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+											        CommonData="Language#Show_"
+											        ItemsSpecification="ACS880_Current_Raw"/>
+
+						<EccFace:EccItemsControl Grid.Row="4" Grid.Column="1"	FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_BlkVal" 
+											        BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+											        CommonData="Language#Show_"
+											        ItemsSpecification="ACS880_Speed_Max_Raw"/>
+
+						<EccFace:EccItemsControl Grid.Row="5" Grid.Column="1"	FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_BlkVal" 
+											        BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+											        CommonData="Language#Show_"
+											        ItemsSpecification="ACS880_Speed_Min_Raw"/>
+                       
+					    <EccFace:EccItemsControl Name="TQ_B" Grid.Row="6" Grid.Column="1"	FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_BlkVal" 
+											        BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+											        CommonData="Language#Show_"
+											        ItemsSpecification="ACS880_Torque_Raw"/>
+					   
+					    <EccFace:EccItemsControl Grid.Row="1" Grid.Column="2"	FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_BlkVal" 
+											        BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+											        CommonData="Language#Show_"
+											        ItemsSpecification="ACS880_Speed_Scal"/>
+                        
+						<EccFace:EccItemsControl Grid.Row="2" Grid.Column="2"	FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_BlkVal" 
+											        BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+											        CommonData="Language#Show_"
+											        ItemsSpecification="ACS880_Power_Scal"/>
+                        
+						<EccFace:EccItemsControl Grid.Row="3" Grid.Column="2"	FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_BlkVal" 
+											        BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+											        CommonData="Language#Show_"
+											        ItemsSpecification="ACS880_Current_Scal"/>
+						
+						<EccFace:EccItemsControl Grid.Row="4" Grid.Column="2"	FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_BlkVal" 
+											        BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+											        CommonData="Language#Show_"
+											        ItemsSpecification="ACS880_Speed_Max"/>
+
+						<EccFace:EccItemsControl Grid.Row="5" Grid.Column="2"	FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_BlkVal" 
+											        BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+											        CommonData="Language#Show_"
+											        ItemsSpecification="ACS880_Speed_Min"/>
+
+
+					</Grid>
+					</GroupBox>
+					
+
+
+					<GroupBox  Grid.Row="1" Grid.ColumnSpan="3" Header="{FlsBase:LangByCaption Fls.Language.IUSysV8::ACS880V2_Grp.AnalogRated}" Grid.IsSharedSizeScope="True" >
+					<Grid>
+						
+					<Grid.RowDefinitions>
+						<RowDefinition Height="auto"/>
+						<RowDefinition Height="auto"/>
+						<RowDefinition Height="*"/>
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="auto"/>
+						<ColumnDefinition Width="*"/>
+					</Grid.ColumnDefinitions>
+
+					<TextBlock Name="Enter" Visibility="Collapsed" Text="{FlsBase:LangByCaption Fls.Language.IUSysV8::ACS880V2_FP.Enter}"  Style="{FlsBase:Retrieve Language, AcesysV8.Styles}" HorizontalAlignment="Center"  />                       
+						
+						<EccFace:EccItemsControl  Grid.Row="1"  FlsBase:Info.EntrySymbolTemplate="AcesysV8.FP_Template_IOFieldEntryLine" HorizontalAlignment="Left"
+													CommonData="Language##Show_" 
+													BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+					 			   					ItemsSpecification="ACS880_Speed_Rated;
+																		ACS880_Power_Rated;
+																		ACS880_Current_Rated"/>
+
+						<EccFace:EccItemsControl Visibility="Collapsed" Grid.Row="2"  FlsBase:Info.EntrySymbolTemplate="AcesysV8.FP_Template_IOFieldEntryLine" HorizontalAlignment="Left"
+													CommonData="Language##Show_" 
+													BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+					 			   					ItemsSpecification="ACS880_Speed_Min;
+																		ACS880_Speed_Max"/>
+
+						
+					   </Grid>
+					</GroupBox>
+
+					
+					
+					
+					</Grid>	
+			  </TabItem>	
+
+			<TabItem Header="{FlsBase:LangByCaption Fls.Language.IUSysV8::ACS880V2_Tab.Faults}" >
+				  <GroupBox Grid.ColumnSpan="2" Grid.RowSpan="2" Header="{FlsBase:LangByCaption Fls.Language.IUSysV8::ACS880V2_Grp.Faults}" Grid.Row="0" Grid.IsSharedSizeScope="True">
+				  <Grid>			
+					<Grid.RowDefinitions>
+					  <RowDefinition Height="Auto" />
+					  <RowDefinition Height="Auto" />
+					  <RowDefinition Height="*" />
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="0.4*"/>
+						<ColumnDefinition Width="0.25*"/>
+						<ColumnDefinition Width="*"/>
+					</Grid.ColumnDefinitions>
+					
+			<TextBlock  Text="{FlsBase:LangByCaption Fls.Language.IUSysV8::Alg.ACS880V2_FACode}"  Style="{FlsBase:Retrieve Language, AcesysV8.Styles}" />			
+			<TextBlock Grid.Row="1" Text="{FlsBase:LangByCaption Fls.Language.IUSysV8::Alg.ACS880V2_WACode}"  Style="{FlsBase:Retrieve Language, AcesysV8.Styles}" />			
+								
+			<EccFace:EccItemsControl Grid.Column="1"	FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_BlkVal" 
+											        BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+											        CommonData="Language#Show_"
+											        ItemsSpecification="ACS880_FACode"/>		  
+
+			<EccFace:EccItemsControl Grid.Row="1" Grid.Column="1"	FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_BlkVal" 
+											        BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+											        CommonData="Language#Show_"
+											        ItemsSpecification="ACS880_WACode"/>	
+			
+			
+			<TextBlock Grid.Column="2" TextAlignment="Center" Text="{Binding Block[ACS880_FAcode].TextValue, Source={StaticResource MasterData}, FallbackValue=NoKey}" /> 
+			<TextBlock Grid.Row="1" Grid.Column="2" TextAlignment="Center" Text="{Binding Block[ACS880_WAcode].TextValue, Source={StaticResource MasterData}, FallbackValue=NoKey}" />
+				  </Grid>
+				  </GroupBox>
+			  </TabItem>
+			
+			<TabItem Header="{FlsBase:LangByCaption Fls.Language.IUSysV8::ACS880V2_Tab.Options}" >
+				  <Grid>			
+					<Grid.RowDefinitions>
+					  <RowDefinition Height="Auto" />
+					  <RowDefinition Height="*" />
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto"/>
+						<ColumnDefinition Width="*"/>
+					</Grid.ColumnDefinitions>
+					<GroupBox Grid.ColumnSpan="2" Grid.RowSpan="2" Header="{FlsBase:LangByCaption Fls.Language.IUSysV8::ACS880V2_Grp.Options}" Grid.Row="0" Grid.IsSharedSizeScope="True">
+						<Grid  Visibility="{Binding Block[FuncType].Value,Source={StaticResource MasterData}, Converter={FlsBase:ObjectToVisibility 1000 Hidden, Visible} ,FallbackValue=Visible}">
+						<EccFace:EccItemsControl	FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_LampLine"
+													BlockParameters="{Binding Block, Source={StaticResource MasterData}}" 
+													CommonData="Show_#ACESYS_"
+													ItemsSpecification="ACS880_LS#NOTXT#Acesys.On#Acesys.Off;
+																		ACS880_BR#NOTXT#Acesys.On#Acesys.Off;
+																		ACS880_MA#NOTXT#Acesys.On#Acesys.Off;
+																		ACS880_SL#NOTXT#Acesys.On#Acesys.Off;
+																		ACS880_TH#NOTXT#Acesys.On#Acesys.Off;
+																		ACS880_MC#NOTXT#Acesys.On#Acesys.Off;
+																		ACS880_NA#NOTXT#Acesys.On#Acesys.Off"/>
+                      </Grid>		
+					  </GroupBox>
+
+					  				         	
+				  </Grid>
+			  </TabItem>	
+    </TabControl>
+
+    <TextBlock Visibility="Collapsed" Name="FuncType" Text="{Binding Block[Functype].Value, FallbackValue=0, Source={StaticResource MasterData}}" />
+	<TextBlock Visibility="Collapsed" Name="Options" Text="{Binding Block[Options].Value, FallbackValue=0, Source={StaticResource MasterData}}" />
+	<TextBlock Visibility="Collapsed" Name="Speed_Rated" Text="{Binding Block[ACS880_Speed_Rated].Value, FallbackValue=0, Source={StaticResource MasterData}}" />
+	<TextBlock Visibility="Collapsed" Name="Power_Rated" Text="{Binding Block[ACS880_Power_Rated].Value, FallbackValue=0, Source={StaticResource MasterData}}" />
+	<TextBlock Visibility="Collapsed" Name="Current_Rated" Text="{Binding Block[ACS880_Current_Rated].Value, FallbackValue=0, Source={StaticResource MasterData}}" />
+	
+	<Control Name="Options_LS" IsEnabled="{Binding Block[ACS880_LS].Value, Source={StaticResource MasterData}, FallbackValue=False}" Width="0" Height="0" />
+	<Control Name="Options_MC" IsEnabled="{Binding Block[ACS880_MC].Value, Source={StaticResource MasterData}, FallbackValue=False}" Width="0" Height="0" />
+	<Control Name="Options_TH" IsEnabled="{Binding Block[ACS880_TH].Value, Source={StaticResource MasterData}, FallbackValue=False}" Width="0" Height="0" />
+	<Control Name="Options_TQ" IsEnabled="{Binding Block[ACS880_TQ].Value, Source={StaticResource MasterData}, FallbackValue=False}" Width="0" Height="0" />
+		
+
+  </Grid>
+  </Grid>
+  <DataTemplate.Triggers>
+  <DataTrigger Binding="{Binding IsEnabled, ElementName=Options_LS}" Value= "False" >		
+			<Setter TargetName="LSTP_A" Property="Visibility" Value="Hidden" />
+			<Setter TargetName="LSTR1" Property="Opacity" Value="0.5" />	
+			<Setter TargetName="LSTR2" Property="Opacity" Value="0.5" />		
+	</DataTrigger>	
+
+ 
+	<DataTrigger Binding="{Binding Text, ElementName=Speed_Rated}" Value="0" >	
+			<Setter TargetName="Enter" Property="Visibility" Value="Visible" />	
+	</DataTrigger>
+	<DataTrigger Binding="{Binding Text, ElementName=Power_Rated}" Value="0" >	
+			<Setter TargetName="Enter" Property="Visibility" Value="Visible" />	
+	</DataTrigger>
+	<DataTrigger Binding="{Binding Text, ElementName=Current_Rated}" Value="0" >	
+			<Setter TargetName="Enter" Property="Visibility" Value="Visible" />	
+	</DataTrigger>
+
+ </DataTemplate.Triggers>
+</DataTemplate>
+	

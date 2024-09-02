@@ -1,0 +1,1286 @@
+<!----><DataTemplate xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sc="clr-namespace:System.Collections;assembly=mscorlib" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:FlsBase="clr-namespace:Fls.Core.Hmi.UI.PA;assembly=Fls.Core.Hmi.UI">
+  <Canvas Width="1630" Height="850">
+    <FlsBase:StickyLine IsEnabled="True" Canvas.Left="320" Canvas.Top="132.5" FlsBase:ExtendOwner.IsSelectable="True" Foreground="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Water Flow}}">
+      <FlsBase:StickyLine.LineData>
+        <FlsBase:StickyLineData UseTagColor="False" FreeDirections="False" LineStyle="Solid" StartHorizontaly="True" Thickness="1" ArrowThickness="1" ArrowClosed="True" ArrowLength="12" ArrowAngle="45" StartPoint="266.894997923914,596.923544747489" EndPoint="-130,95" IntermediatePoints="315,596.923544747489 315,-20 -130,-20">
+          <FlsBase:StickyLineData.Arrows>
+            <FlsBase:ArrowSetting LineNumber="2" ArrowEnd="True" Inverted="False" />
+            <FlsBase:ArrowSetting LineNumber="4" ArrowEnd="True" Inverted="False" />
+          </FlsBase:StickyLineData.Arrows>
+        </FlsBase:StickyLineData>
+      </FlsBase:StickyLine.LineData>
+    </FlsBase:StickyLine>
+    <FlsBase:StickyLine IsEnabled="True" Canvas.Left="-72.5" Canvas.Top="-130" FlsBase:ExtendOwner.IsSelectable="True" Foreground="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Material Flow}}">
+      <FlsBase:StickyLine.LineData>
+        <FlsBase:StickyLineData UseTagColor="False" FreeDirections="False" LineStyle="Solid" StartHorizontaly="True" Thickness="1" ArrowThickness="1" ArrowClosed="True" ArrowLength="12" ArrowAngle="45" StartPoint="824.835766423358,334.788961038961" EndPoint="873.75,335" IntermediatePoints="873.75,334.788961038961" />
+      </FlsBase:StickyLine.LineData>
+    </FlsBase:StickyLine>
+    <Polyline Points="0,0 10,0" Stroke="#FF000000" StrokeThickness="3" IsEnabled="True" Canvas.Left="772.5" Canvas.Top="205" />
+    <FlsBase:StickyLine IsEnabled="True" FlsBase:ExtendOwner.IsSelectable="True" Foreground="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Oil Flow}}">
+      <FlsBase:StickyLine.LineData>
+        <FlsBase:StickyLineData UseTagColor="False" FreeDirections="False" LineStyle="Solid" StartHorizontaly="True" Thickness="1" ArrowThickness="1" ArrowClosed="True" ArrowLength="12" ArrowAngle="45" StickyEndPoint="fde52916-229c-4a0b-80bc-2cf708ef91ec" StartPoint="148.75,676.25" EndPoint="148.75,711.25" IntermediatePoints="162.5,676.25 162.5,548.75 541.25,548.75 541.25,711.25" />
+      </FlsBase:StickyLine.LineData>
+    </FlsBase:StickyLine>
+    <Polyline Points="0,0 10,0" Stroke="#FF000000" StrokeThickness="3" IsEnabled="True" Canvas.Left="175" Canvas.Top="548.75" />
+    <FlsBase:DynamicSymbol ExtendObject="{x:Type fepuipa:PointConfViewModel}" TagCode="2080TN590I03" IsSelectable="True" FileName="AcesysV8.PIDDisplay" Build="3" Width="115" Height="Auto" IsEnabled="True" Canvas.Left="980" Canvas.Top="340" xmlns:fepuipa="clr-namespace:Fls.Ecc.Pnt.UI.PA;assembly=Fls.Ecc.Pnt.UI" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsBooleanValue Value="False" Key="Show_SPM" />
+          <FlsBase:FlsDoubleValue Value="18" Key="FontSize" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol ExtendObject="{x:Type fepuipa:PointConfViewModel}" TagCode="2080SU570I01" IsSelectable="True" FileName="AcesysV8.PIDDisplay" Build="3" Width="115" Height="Auto" IsEnabled="True" Canvas.Left="357.85457072423" Canvas.Top="611.190779220779" xmlns:fepuipa="clr-namespace:Fls.Ecc.Pnt.UI.PA;assembly=Fls.Ecc.Pnt.UI" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsBooleanValue Value="False" Key="Show_SPM" />
+          <FlsBase:FlsDoubleValue Value="18" Key="FontSize" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:StickyLine IsEnabled="True" FlsBase:ExtendOwner.IsSelectable="True" Foreground="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Material Flow}}">
+      <FlsBase:StickyLine.LineData>
+        <FlsBase:StickyLineData UseTagColor="False" FreeDirections="False" LineStyle="Solid" StartHorizontaly="True" Thickness="1" ArrowThickness="1" ArrowClosed="True" ArrowLength="12" ArrowAngle="45" StartPoint="101.433333333333,242.75" EndPoint="150,242.5" IntermediatePoints="150,242.75" />
+      </FlsBase:StickyLine.LineData>
+    </FlsBase:StickyLine>
+    <Rectangle StrokeThickness="0" StrokeDashArray="" Width="15" Height="7.5" RenderTransform="6.12303176911189E-17,1,-1,6.12303176911189E-17,11.25,-3.75" IsEnabled="True" Canvas.Left="145" Canvas.Top="242.5" Stroke="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Text Inside Object}}" Fill="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Linebrush}}" />
+    <Rectangle StrokeThickness="0" StrokeDashArray="" Width="15" Height="7.5" RenderTransform="6.12303176911189E-17,1,-1,6.12303176911189E-17,11.25,-3.75" IsEnabled="True" Canvas.Left="145" Canvas.Top="277.5" Stroke="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Text Inside Object}}" Fill="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Linebrush}}" />
+    <FlsBase:StaticPart FileName="StaticBasicStyle.BE_Silo" Build="1002" Width="180.970149253731" Height="121.090909090909" RenderTransform="0.690721649484536,0,0,0.763888888888889,0,0" IsEnabled="True" Canvas.Left="155" Canvas.Top="227.5" />
+    <Polygon Points="0,0 0,62.5 110,62.5 110,0" StrokeThickness="0" IsEnabled="True" Canvas.Left="162.5" Canvas.Top="227.5" Stroke="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Text Inside Object}}" Fill="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush MimicBackground}}" />
+    <Canvas RenderTransform="-1.38461538461538,0,0,1.92307692307692,45,0" Width="32.5" Height="32.5" Tag="HmiGroup" Canvas.Left="197.5" Canvas.Top="127.5" IsEnabled="True">
+      <Polygon Points="20,17.5 0,15 0,10 15,10 15,0 32.5,0 32.5,12.5" StrokeThickness="1" StrokeDashArray="" IsEnabled="True" Canvas.Left="0" Canvas.Top="0" Stroke="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Text Inside Object}}">
+        <Polygon.Fill>
+          <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" ColorInterpolationMode="SRgbLinearInterpolation" MappingMode="RelativeToBoundingBox" SpreadMethod="Pad" Opacity="1" Transform="Identity" RelativeTransform="Identity">
+            <LinearGradientBrush.GradientStops>
+              <GradientStop Color="#FF383838" Offset="0" />
+              <GradientStop Color="#FFE5E5E5" Offset="1" />
+            </LinearGradientBrush.GradientStops>
+          </LinearGradientBrush>
+        </Polygon.Fill>
+      </Polygon>
+      <Polygon Points="15,30 15,0 0,0 0,30" StrokeThickness="1" StrokeDashArray="" IsEnabled="True" Canvas.Left="17.5" Canvas.Top="2.5" Stroke="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Text Inside Object}}">
+        <Polygon.Fill>
+          <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" ColorInterpolationMode="SRgbLinearInterpolation" MappingMode="RelativeToBoundingBox" SpreadMethod="Pad" Opacity="1" Transform="Identity" RelativeTransform="Identity">
+            <LinearGradientBrush.GradientStops>
+              <GradientStop Color="#FF383838" Offset="0" />
+              <GradientStop Color="#FFE5E5E5" Offset="1" />
+            </LinearGradientBrush.GradientStops>
+          </LinearGradientBrush>
+        </Polygon.Fill>
+      </Polygon>
+      <Polygon Points="13.75,12.5 13.75,0 27.5,0 27.5,6.25 2.5,22.5 2.5,27.5 0,27.5 0,15 2.5,15 2.5,20" StrokeThickness="1" StrokeDashArray="" IsEnabled="True" Canvas.Left="3.75" Canvas.Top="2.5" Stroke="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Text Inside Object}}">
+        <Polygon.Fill>
+          <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" ColorInterpolationMode="SRgbLinearInterpolation" MappingMode="RelativeToBoundingBox" SpreadMethod="Pad" Opacity="1" Transform="Identity" RelativeTransform="Identity">
+            <LinearGradientBrush.GradientStops>
+              <GradientStop Color="#FF383838" Offset="0" />
+              <GradientStop Color="#FFE5E5E5" Offset="1" />
+            </LinearGradientBrush.GradientStops>
+          </LinearGradientBrush>
+        </Polygon.Fill>
+      </Polygon>
+      <Rectangle StrokeThickness="0.5" StrokeDashArray="" Width="2.5" Height="10" IsEnabled="True" Canvas.Left="3.75" Canvas.Top="7.5" Stroke="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Text Inside Object}}">
+        <Rectangle.Fill>
+          <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" ColorInterpolationMode="SRgbLinearInterpolation" MappingMode="RelativeToBoundingBox" SpreadMethod="Pad" Opacity="1" Transform="Identity" RelativeTransform="Identity">
+            <LinearGradientBrush.GradientStops>
+              <GradientStop Color="#FF383838" Offset="0" />
+              <GradientStop Color="#FFE5E5E5" Offset="1" />
+            </LinearGradientBrush.GradientStops>
+          </LinearGradientBrush>
+        </Rectangle.Fill>
+      </Rectangle>
+    </Canvas>
+    <FlsBase:StaticPart FileName="StaticBasicStyle.BE_Silo" Build="1002" Width="180.970149253731" Height="137.454545454545" RenderTransform="-0.690721649484536,0,0,0.763888888888889,125,0" IsEnabled="True" Canvas.Left="17.5" Canvas.Top="657.5" />
+    <Polygon Points="2.27373675443232E-13,0 0,70 100,70 100,0" StrokeThickness="0" RenderTransform="-1,0,0,1,117.5,0" IsEnabled="True" Canvas.Left="17.5000000000002" Canvas.Top="657.5" Stroke="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Text Inside Object}}" Fill="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush MimicBackground}}" />
+    <Rectangle StrokeThickness="0" StrokeDashArray="" Width="15" Height="7.5" RenderTransform="-6.12303176911189E-17,1,1,6.12303176911189E-17,123.75,46.25" IsEnabled="True" Canvas.Left="17.5" Canvas.Top="657.5" xmlns:sc="clr-namespace:System.Collections;assembly=mscorlib" Stroke="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Text Inside Object}}" Fill="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Linebrush}}">
+      <FlsBase:Info.Connections>
+        <sc:ArrayList Capacity="4">
+          <FlsBase:ConnectionInfo ConnectId="fde52916-229c-4a0b-80bc-2cf708ef91ec" RelativePosition="0.5,1" FixedPoint="{x:Null}" Offset="{x:Null}" />
+        </sc:ArrayList>
+      </FlsBase:Info.Connections>
+    </Rectangle>
+    <Rectangle StrokeThickness="0" StrokeDashArray="" Width="15" Height="7.5" RenderTransform="-6.12303176911189E-17,1,1,6.12303176911189E-17,123.75,11.25" IsEnabled="True" Canvas.Left="17.5" Canvas.Top="657.5" Stroke="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Text Inside Object}}" Fill="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Linebrush}}" />
+    <Canvas RenderTransform="0.733918128654971,0,0,1.21794871794872,0,0" Width="427.5" Height="97.5" Tag="HmiGroup" Canvas.Left="801.25" Canvas.Top="190" IsEnabled="True">
+      <FlsBase:Info.Connections>
+        <sc:ArrayList>
+          <FlsBase:ConnectionInfo ConnectId="92114709-a40b-452c-8fee-6c45de075554" RelativePosition="0.5,1" FixedPoint="{x:Null}" Offset="{x:Null}" />
+        </sc:ArrayList>
+      </FlsBase:Info.Connections>
+      <Polygon Points="0,0 427.5,5 427.5,53.75 203.75,77.5 1.25,52.5" StrokeThickness="0" StrokeDashArray="" IsEnabled="True" Canvas.Left="0" Canvas.Top="0" Stroke="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Linebrush}}">
+        <Polygon.Fill>
+          <LinearGradientBrush StartPoint="0,1" EndPoint="1,1" ColorInterpolationMode="SRgbLinearInterpolation" MappingMode="RelativeToBoundingBox" SpreadMethod="Pad" Opacity="1" Transform="Identity" RelativeTransform="Identity">
+            <LinearGradientBrush.GradientStops>
+              <GradientStop Color="#FF383838" Offset="0" />
+              <GradientStop Color="#FFFFFFFF" Offset="0.5" />
+              <GradientStop Color="#FF383838" Offset="1" />
+            </LinearGradientBrush.GradientStops>
+          </LinearGradientBrush>
+        </Polygon.Fill>
+      </Polygon>
+      <Polygon Points="0,0 63.75,28.75 87.5,28.75 152.5,0" StrokeThickness="0" StrokeDashArray="" IsEnabled="True" Canvas.Left="128.75" Canvas.Top="68.75" Stroke="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Linebrush}}">
+        <Polygon.Fill>
+          <LinearGradientBrush StartPoint="0,1" EndPoint="1,1" ColorInterpolationMode="SRgbLinearInterpolation" MappingMode="RelativeToBoundingBox" SpreadMethod="Pad" Opacity="1" Transform="Identity" RelativeTransform="Identity">
+            <LinearGradientBrush.GradientStops>
+              <GradientStop Color="#FF383838" Offset="0" />
+              <GradientStop Color="#FFFFFFFF" Offset="0.5" />
+              <GradientStop Color="#FF383838" Offset="1" />
+            </LinearGradientBrush.GradientStops>
+          </LinearGradientBrush>
+        </Polygon.Fill>
+      </Polygon>
+    </Canvas>
+    <Canvas RenderTransform="0.721739130434783,0,0,0.811881188118815,0.902173913043479,46.6831683168319" Width="426.25" Height="26.25" Tag="HmiGroup" Canvas.Left="801.25" Canvas.Top="202.5" IsEnabled="True" FlsBase:Info.Owner="Tag:::2080TN590A01%%%BC:::TTTTF%%%CC:::FT" FlsBase:Info.DataParent="{Binding Parent}">
+      <Polygon Points="0,0 426.25,0 426.25,7.5 228.75,26.25 198.75,26.25 0,7.5" Stroke="#FF000000" StrokeThickness="2" StrokeDashArray="" IsEnabled="True" Canvas.Left="0" Canvas.Top="0" />
+      <Polyline Points="0,0 8.75,7.5 28.75,0 28.75,8.75 60,1.25 60,12.5 111.25,1.25 111.25,17.5 162.5,1.25 162.5,21.25 213.75,1.25 262.5,21.25 262.5,1.25 313.75,17.5 313.75,1.25 363.75,13.75 363.75,1.25 396.25,10 396.25,1.25 426.25,7.5" Stroke="#FF000000" StrokeThickness="2" StrokeDashArray="" IsEnabled="True" Canvas.Left="0" Canvas.Top="0" />
+      <Polyline Points="0,0 0,25" Stroke="#FF000000" StrokeThickness="2" StrokeDashArray="" IsEnabled="True" Canvas.Left="213.75" Canvas.Top="1.25" />
+    </Canvas>
+    <FlsBase:StaticPart FileName="StaticBasicStyle.Sump" Build="0" Width="Auto" Height="32.8125" IsEnabled="True" Canvas.Left="681.5625" Canvas.Top="778.75" />
+    <Polyline Points="0,0 0,50.625" StrokeThickness="1" StrokeDashArray="" IsEnabled="True" Canvas.Left="743.75" Canvas.Top="736.25" Stroke="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Linebrush}}" />
+    <Rectangle RadiusX="5" RadiusY="5" StrokeThickness="0" StrokeDashArray="" Width="20" Height="10" IsEnabled="True" Canvas.Left="733.75" Canvas.Top="778.75" Stroke="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Text Inside Object}}" Fill="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Linebrush}}" />
+    <Rectangle StrokeThickness="0" StrokeDashArray="" Width="15" Height="3.75" IsEnabled="True" Canvas.Left="736.25" Canvas.Top="790" Stroke="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Text Inside Object}}" Fill="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Linebrush}}" />
+    <Polygon Points="1.25,23.75 65,0 65,10 38.75,48.75 32.5,48.75 0,33.75" StrokeThickness="1" IsEnabled="True" Canvas.Left="82.5" Canvas.Top="537.5" Stroke="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Text Inside Object}}">
+      <Polygon.Fill>
+        <LinearGradientBrush StartPoint="0,1" EndPoint="1,1" ColorInterpolationMode="SRgbLinearInterpolation" MappingMode="RelativeToBoundingBox" SpreadMethod="Pad" Opacity="1" Transform="Identity" RelativeTransform="Identity">
+          <LinearGradientBrush.GradientStops>
+            <GradientStop Color="#FF383838" Offset="0" />
+            <GradientStop Color="#FFE5E5E5" Offset="0.5" />
+            <GradientStop Color="#FF383838" Offset="1" />
+          </LinearGradientBrush.GradientStops>
+        </LinearGradientBrush>
+      </Polygon.Fill>
+    </Polygon>
+    <Polyline Points="0,23.75 65,0" Stroke="#FF000000" StrokeThickness="1" StrokeDashArray="" IsEnabled="True" Canvas.Left="82.5" Canvas.Top="547.5" />
+    <FlsBase:DynamicSymbol TagCode="2080SP530I11" IsSelectable="True" FileName="AcesysV8.PointValueDisplay" Build="5" Width="106.840528309774" Height="Auto" IsEnabled="True" Canvas.Left="361.934306569343" Canvas.Top="740.909090909091" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsDoubleValue Value="18" Key="FontSize" />
+          <FlsBase:FlsDoubleValue Value="12" Key="FontSizeUnit" />
+          <FlsBase:FlsTextValue Value="Bold" Key="FontWeight" DropDownNumber="1" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <TextBlock Text="2080-SP-601" FontSize="13.5" Foreground="{Binding Parent, Converter={FlsBase:WhiteBackgroundColorConverter #FFEBEBC7, true}}" TextAlignment="Right" Width="Auto" IsEnabled="True" Canvas.Left="1125" Canvas.Top="585" />
+    <TextBlock Text="Y05" FontSize="13.5" Foreground="{Binding Parent, Converter={FlsBase:WhiteBackgroundColorConverter #FFEBEBC7, true}}" TextAlignment="Right" Width="Auto" IsEnabled="True" Canvas.Left="980" Canvas.Top="530.203224854572" />
+    <FlsBase:DynamicSymbol TagCode="2080SP601D01F41" IsSelectable="True" FileName="AcesysV8.AlarmPoint" Build="3" StaticText="F" Width="Auto" Height="15" IsEnabled="True" Canvas.Left="1180" Canvas.Top="550" ToolTipType="AcesysV8.StandardToolTipWithValue" />
+    <TextBlock Text="2080-SP-600" FontSize="13.5" Foreground="{Binding Parent, Converter={FlsBase:WhiteBackgroundColorConverter #FFEBEBC7, true}}" TextAlignment="Right" Width="Auto" IsEnabled="True" Canvas.Left="1114.92888077859" Canvas.Top="746.668151834331" />
+    <TextBlock Text="Y05" FontSize="13.5" Foreground="{Binding Parent, Converter={FlsBase:WhiteBackgroundColorConverter #FFEBEBC7, true}}" TextAlignment="Right" Width="Auto" IsEnabled="True" Canvas.Left="980" Canvas.Top="693.010883656952" />
+    <TextBlock Text="Y09" FontSize="13.5" Foreground="{Binding Parent, Converter={FlsBase:WhiteBackgroundColorConverter #FFEBEBC7, true}}" TextAlignment="Right" Width="Auto" IsEnabled="True" Canvas.Left="1282.56327669093" Canvas.Top="591.277938028971" />
+    <TextBlock Text="Y09" FontSize="13.5" Foreground="{Binding Parent, Converter={FlsBase:WhiteBackgroundColorConverter #FFEBEBC7, true}}" TextAlignment="Right" Width="Auto" IsEnabled="True" Canvas.Left="1282.56327669093" Canvas.Top="680.027938028971" />
+    <TextBlock Text="Y06" FontSize="13.5" Foreground="{Binding Parent, Converter={FlsBase:WhiteBackgroundColorConverter #FFEBEBC7, true}}" TextAlignment="Right" Width="Auto" IsEnabled="True" Canvas.Left="1077.5" Canvas.Top="590" />
+    <TextBlock Text="Y06" FontSize="13.5" Foreground="{Binding Parent, Converter={FlsBase:WhiteBackgroundColorConverter #FFEBEBC7, true}}" TextAlignment="Right" Width="Auto" IsEnabled="True" Canvas.Left="1070" Canvas.Top="752.5" />
+    <FlsBase:DynamicSymbol TagCode="2080SP600U01I01" IsSelectable="True" FileName="AcesysV8.PointValueDisplay" Build="5" Width="106.840528309774" Height="Auto" IsEnabled="True" Canvas.Left="1204.61678832117" Canvas.Top="741.590909090909" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsDoubleValue Value="18" Key="FontSize" />
+          <FlsBase:FlsDoubleValue Value="12" Key="FontSizeUnit" />
+          <FlsBase:FlsTextValue Value="Bold" Key="FontWeight" DropDownNumber="1" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol TagCode="2080SP600U01J01" IsSelectable="True" FileName="AcesysV8.PointValueDisplay" Build="5" Width="106.840528309774" Height="Auto" IsEnabled="True" Canvas.Left="1204.61678832117" Canvas.Top="766.274350649351" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsDoubleValue Value="18" Key="FontSize" />
+          <FlsBase:FlsDoubleValue Value="12" Key="FontSizeUnit" />
+          <FlsBase:FlsTextValue Value="Bold" Key="FontWeight" DropDownNumber="1" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol TagCode="2080SP600U01S01" IsSelectable="True" FileName="AcesysV8.PointValueDisplay" Build="5" Width="106.840528309774" Height="Auto" IsEnabled="True" Canvas.Left="1204.61678832117" Canvas.Top="790.957792207792" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsDoubleValue Value="18" Key="FontSize" />
+          <FlsBase:FlsDoubleValue Value="12" Key="FontSizeUnit" />
+          <FlsBase:FlsTextValue Value="Bold" Key="FontWeight" DropDownNumber="1" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol TagCode="2080SP601U01I01" IsSelectable="True" FileName="AcesysV8.PointValueDisplay" Build="5" Width="106.840528309774" Height="Auto" IsEnabled="True" Canvas.Left="1210" Canvas.Top="480" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsDoubleValue Value="18" Key="FontSize" />
+          <FlsBase:FlsDoubleValue Value="12" Key="FontSizeUnit" />
+          <FlsBase:FlsTextValue Value="Bold" Key="FontWeight" DropDownNumber="1" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol TagCode="2080SP601U01J01" IsSelectable="True" FileName="AcesysV8.PointValueDisplay" Build="5" Width="106.840528309774" Height="Auto" IsEnabled="True" Canvas.Left="1210" Canvas.Top="505.308441558441" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsDoubleValue Value="18" Key="FontSize" />
+          <FlsBase:FlsDoubleValue Value="12" Key="FontSizeUnit" />
+          <FlsBase:FlsTextValue Value="Bold" Key="FontWeight" DropDownNumber="1" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol TagCode="2080SP601U01S01" IsSelectable="True" FileName="AcesysV8.PointValueDisplay" Build="5" Width="106.840528309774" Height="Auto" IsEnabled="True" Canvas.Left="1210" Canvas.Top="530.616883116883" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsDoubleValue Value="18" Key="FontSize" />
+          <FlsBase:FlsDoubleValue Value="12" Key="FontSizeUnit" />
+          <FlsBase:FlsTextValue Value="Bold" Key="FontWeight" DropDownNumber="1" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol TagCode="2080TN590A01" IsSelectable="True" FileName="AcesysV8.Motor" Build="3" Width="Auto" Height="Auto" IsEnabled="True" Canvas.Left="943.75" Canvas.Top="168.75" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsTextValue Value="ModeRight25" Key="Position" DropDownNumber="1" />
+          <FlsBase:FlsBooleanValue Value="True" Key="EnTagInfo" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol TagCode="080TN590N03P01" IsSelectable="True" FileName="AcesysV8.PointValueDisplay" Build="5" Width="106.840528309774" Height="Auto" IsEnabled="True" Canvas.Left="1014.03785649877" Canvas.Top="280.941558441558" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsDoubleValue Value="18" Key="FontSize" />
+          <FlsBase:FlsDoubleValue Value="12" Key="FontSizeUnit" />
+          <FlsBase:FlsTextValue Value="Bold" Key="FontWeight" DropDownNumber="1" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <TextBlock Text="2080-SP-580" FontSize="13.5" Foreground="{Binding Parent, Converter={FlsBase:WhiteBackgroundColorConverter #FFEBEBC7, true}}" TextAlignment="Right" Width="Auto" IsEnabled="True" Canvas.Left="376.4799756691" Canvas.Top="558.937605403223" />
+    <TextBlock Text="Y03" FontSize="13.5" Foreground="{Binding Parent, Converter={FlsBase:WhiteBackgroundColorConverter #FFEBEBC7, true}}" TextAlignment="Right" Width="Auto" IsEnabled="True" Canvas.Left="305" Canvas.Top="565" />
+    <TextBlock Text="Y02" FontSize="13.5" Foreground="{Binding Parent, Converter={FlsBase:WhiteBackgroundColorConverter #FFEBEBC7, true}}" TextAlignment="Right" Width="Auto" IsEnabled="True" Canvas.Left="249.772916666667" Canvas.Top="515.079733691196" />
+    <TextBlock Text="Y05" FontSize="13.5" Foreground="{Binding Parent, Converter={FlsBase:WhiteBackgroundColorConverter #FFEBEBC7, true}}" TextAlignment="Right" Width="Auto" IsEnabled="True" Canvas.Left="181.513407404173" Canvas.Top="497.527938028971" />
+    <FlsBase:DynamicSymbol TagCode="2080SP580D01F41" IsSelectable="True" FileName="AcesysV8.AlarmPoint" Build="3" StaticText="F" Width="Auto" Height="15" IsEnabled="True" Canvas.Left="435" Canvas.Top="530" ToolTipType="AcesysV8.StandardToolTipWithValue" />
+    <FlsBase:DynamicSymbol TagCode="2080SP580U01" IsSelectable="True" FileName="AcesysV8.Pump" Build="4" Width="Auto" Height="Auto" IsEnabled="True" Canvas.Left="398.576642335766" Canvas.Top="535.600649350649" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsTextValue Value="RotateRight25" Key="Direction" DropDownNumber="1" />
+          <FlsBase:FlsBooleanValue Value="True" Key="EnTagInfo" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol TagCode="2080SP580Y02" IsSelectable="True" FileName="AcesysV8.ValveOnOff" Build="4" Width="21.5625" Height="Auto" IsEnabled="True" Canvas.Left="250" Canvas.Top="538.75" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsBooleanValue Value="False" Key="Inverted" />
+          <FlsBase:FlsBooleanValue Value="True" Key="EnTagInfo" />
+          <FlsBase:FlsDoubleValue Value="90" Key="Direction" DropDownNumber="1" />
+          <FlsBase:FlsBooleanValue Value="True" Key="SetMimicBackground" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol TagCode="2080SP580U01I01" IsSelectable="True" FileName="AcesysV8.PointValueDisplay" Build="5" Width="106.840528309774" Height="Auto" IsEnabled="True" Canvas.Left="366.934306569343" Canvas.Top="440" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsDoubleValue Value="18" Key="FontSize" />
+          <FlsBase:FlsDoubleValue Value="12" Key="FontSizeUnit" />
+          <FlsBase:FlsTextValue Value="Bold" Key="FontWeight" DropDownNumber="1" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol TagCode="2080SP580U01J01" IsSelectable="True" FileName="AcesysV8.PointValueDisplay" Build="5" Width="106.840528309774" Height="Auto" IsEnabled="True" Canvas.Left="366.934306569343" Canvas.Top="466.558441558441" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsDoubleValue Value="18" Key="FontSize" />
+          <FlsBase:FlsDoubleValue Value="12" Key="FontSizeUnit" />
+          <FlsBase:FlsTextValue Value="Bold" Key="FontWeight" DropDownNumber="1" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol TagCode="2080SP580U01S01" IsSelectable="True" FileName="AcesysV8.PointValueDisplay" Build="5" Width="106.840528309774" Height="Auto" IsEnabled="True" Canvas.Left="366.934306569343" Canvas.Top="493.116883116883" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsDoubleValue Value="18" Key="FontSize" />
+          <FlsBase:FlsDoubleValue Value="12" Key="FontSizeUnit" />
+          <FlsBase:FlsTextValue Value="Bold" Key="FontWeight" DropDownNumber="1" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol TagCode="2080SP580I11" IsSelectable="True" FileName="AcesysV8.PointValueDisplay" Build="5" Width="106.840528309774" Height="Auto" IsEnabled="True" Canvas.Left="361.934306569343" Canvas.Top="576.785714285714" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsDoubleValue Value="18" Key="FontSize" />
+          <FlsBase:FlsDoubleValue Value="12" Key="FontSizeUnit" />
+          <FlsBase:FlsTextValue Value="Bold" Key="FontWeight" DropDownNumber="1" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol TagCode="080TN590I05" IsSelectable="True" FileName="AcesysV8.PointValueDisplay" Build="5" Width="106.840528309774" Height="Auto" IsEnabled="True" Canvas.Left="806.8383310137" Canvas.Top="193.364277629109" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsDoubleValue Value="18" Key="FontSize" />
+          <FlsBase:FlsDoubleValue Value="12" Key="FontSizeUnit" />
+          <FlsBase:FlsTextValue Value="Bold" Key="FontWeight" DropDownNumber="1" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol TagCode="080TN590A01A02_9" IsSelectable="True" FileName="AcesysV8.PointValueDisplay" Build="5" Width="106.840528309774" Height="Auto" IsEnabled="True" Canvas.Left="998.1066682913" Canvas.Top="196.218842345399" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsDoubleValue Value="18" Key="FontSize" />
+          <FlsBase:FlsDoubleValue Value="12" Key="FontSizeUnit" />
+          <FlsBase:FlsTextValue Value="Bold" Key="FontWeight" DropDownNumber="1" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol TagCode="080TN590A01B06_0V" IsSelectable="True" FileName="AcesysV8.PointValueDisplay" Build="5" Width="106.840528309774" Height="Auto" IsEnabled="True" Canvas.Left="998.1066682913" Canvas.Top="220.532313755581" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsDoubleValue Value="18" Key="FontSize" />
+          <FlsBase:FlsDoubleValue Value="12" Key="FontSizeUnit" />
+          <FlsBase:FlsTextValue Value="Bold" Key="FontWeight" DropDownNumber="1" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol TagCode="2080SP580Y10" IsSelectable="True" FileName="AcesysV8.ValveOnOff" Build="4" Width="21.5625" Height="Auto" IsEnabled="True" Canvas.Left="481.117337637574" Canvas.Top="538.75" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsBooleanValue Value="False" Key="Inverted" />
+          <FlsBase:FlsBooleanValue Value="True" Key="EnTagInfo" />
+          <FlsBase:FlsDoubleValue Value="90" Key="Direction" DropDownNumber="1" />
+          <FlsBase:FlsBooleanValue Value="True" Key="SetMimicBackground" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <TextBlock Text="Y10" FontSize="13.5" Foreground="{Binding Parent, Converter={FlsBase:WhiteBackgroundColorConverter #FFEBEBC7, true}}" TextAlignment="Right" Width="Auto" IsEnabled="True" Canvas.Left="480.890254304241" Canvas.Top="517.579733691196" />
+    <FlsBase:DynamicSymbol TagCode="080TN590A01X13_5" IsSelectable="True" FileName="AcesysV8.PointValueDisplay" Build="5" Width="106.840528309774" Height="Auto" IsEnabled="True" Canvas.Left="760.466597158982" Canvas.Top="132.175324675325" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsDoubleValue Value="18" Key="FontSize" />
+          <FlsBase:FlsDoubleValue Value="12" Key="FontSizeUnit" />
+          <FlsBase:FlsTextValue Value="Bold" Key="FontWeight" DropDownNumber="1" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol TagCode="2080SU570N01L01" IsSelectable="True" FileName="AcesysV8.PointValueDisplay" Build="5" Width="94.340528309774" Height="Auto" IsEnabled="True" Canvas.Left="37.8297358451129" Canvas.Top="682.5" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsDoubleValue Value="18" Key="FontSize" />
+          <FlsBase:FlsDoubleValue Value="12" Key="FontSizeUnit" />
+          <FlsBase:FlsTextValue Value="Bold" Key="FontWeight" DropDownNumber="1" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <TextBlock Text="080-SU-570" FontSize="13.5" Foreground="#FF000000" TextAlignment="Right" Width="Auto" IsEnabled="True" Canvas.Left="44.5466666666666" Canvas.Top="740.418151834331" />
+    <FlsBase:DynamicSymbol TagCode="2080SP530Y02" IsSelectable="True" FileName="AcesysV8.ValveOnOff" Build="4" Width="21.5625" Height="Auto" IsEnabled="True" Canvas.Left="250" Canvas.Top="700" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsBooleanValue Value="False" Key="Inverted" />
+          <FlsBase:FlsBooleanValue Value="True" Key="EnTagInfo" />
+          <FlsBase:FlsDoubleValue Value="90" Key="Direction" DropDownNumber="1" />
+          <FlsBase:FlsBooleanValue Value="True" Key="SetMimicBackground" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol TagCode="2080SP530U01" IsSelectable="True" FileName="AcesysV8.Pump" Build="4" Width="Auto" Height="Auto" IsEnabled="True" Canvas.Left="398.576642335766" Canvas.Top="698.384583708528" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsTextValue Value="RotateRight25" Key="Direction" DropDownNumber="1" />
+          <FlsBase:FlsBooleanValue Value="True" Key="EnTagInfo" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol TagCode="2080SP530Y10" IsSelectable="True" FileName="AcesysV8.ValveOnOff" Build="4" Width="21.5625" Height="Auto" IsEnabled="True" Canvas.Left="501.117337637574" Canvas.Top="701.493169611151" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsBooleanValue Value="False" Key="Inverted" />
+          <FlsBase:FlsBooleanValue Value="True" Key="EnTagInfo" />
+          <FlsBase:FlsDoubleValue Value="90" Key="Direction" DropDownNumber="1" />
+          <FlsBase:FlsBooleanValue Value="True" Key="SetMimicBackground" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <TextBlock Text="2080-SP-530" FontSize="13.5" Foreground="{Binding Parent, Converter={FlsBase:WhiteBackgroundColorConverter #FFEBEBC7, true}}" TextAlignment="Right" Width="Auto" IsEnabled="True" Canvas.Left="376.4799756691" Canvas.Top="725.61875536898" />
+    <TextBlock Text="Y02" FontSize="13.5" Foreground="{Binding Parent, Converter={FlsBase:WhiteBackgroundColorConverter #FFEBEBC7, true}}" TextAlignment="Right" Width="Auto" IsEnabled="True" Canvas.Left="250" Canvas.Top="675" />
+    <TextBlock Text="Y10" FontSize="13.5" Foreground="{Binding Parent, Converter={FlsBase:WhiteBackgroundColorConverter #FFEBEBC7, true}}" TextAlignment="Right" Width="Auto" IsEnabled="True" Canvas.Left="500.890254304241" Canvas.Top="680.510883656952" />
+    <FlsBase:DynamicSymbol TagCode="2080SP530U01I01" IsSelectable="True" FileName="AcesysV8.PointValueDisplay" Build="5" Width="106.840528309774" Height="Auto" IsEnabled="True" Canvas.Left="361.934306569343" Canvas.Top="767.050865800866" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsDoubleValue Value="18" Key="FontSize" />
+          <FlsBase:FlsDoubleValue Value="12" Key="FontSizeUnit" />
+          <FlsBase:FlsTextValue Value="Bold" Key="FontWeight" DropDownNumber="1" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol TagCode="2080SP530U01J01" IsSelectable="True" FileName="AcesysV8.PointValueDisplay" Build="5" Width="106.840528309774" Height="Auto" IsEnabled="True" Canvas.Left="361.934306569343" Canvas.Top="793.192640692641" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsDoubleValue Value="18" Key="FontSize" />
+          <FlsBase:FlsDoubleValue Value="12" Key="FontSizeUnit" />
+          <FlsBase:FlsTextValue Value="Bold" Key="FontWeight" DropDownNumber="1" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol TagCode="2080SP530U01S01" IsSelectable="True" FileName="AcesysV8.PointValueDisplay" Build="5" Width="106.840528309774" Height="Auto" IsEnabled="True" Canvas.Left="361.934306569343" Canvas.Top="819.334415584416" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsDoubleValue Value="18" Key="FontSize" />
+          <FlsBase:FlsDoubleValue Value="12" Key="FontSizeUnit" />
+          <FlsBase:FlsTextValue Value="Bold" Key="FontWeight" DropDownNumber="1" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <TextBlock Text="Y05" FontSize="13.5" Foreground="{Binding Parent, Converter={FlsBase:WhiteBackgroundColorConverter #FFEBEBC7, true}}" TextAlignment="Right" Width="Auto" IsEnabled="True" Canvas.Left="181.513407404173" Canvas.Top="658.777938028971" />
+    <TextBlock Text="Y08" FontSize="13.5" Foreground="{Binding Parent, Converter={FlsBase:WhiteBackgroundColorConverter #FFEBEBC7, true}}" TextAlignment="Right" Width="Auto" IsEnabled="True" Canvas.Left="331.473272333818" Canvas.Top="658.777938028971" />
+    <TextBlock Text="Y03" FontSize="13.5" Foreground="{Binding Parent, Converter={FlsBase:WhiteBackgroundColorConverter #FFEBEBC7, true}}" TextAlignment="Right" Width="Auto" IsEnabled="True" Canvas.Left="317.023359475982" Canvas.Top="731.277938028971" />
+    <FlsBase:DynamicSymbol TagCode="2080TN591A01" IsSelectable="True" FileName="AcesysV8.Motor" Build="3" Width="Auto" Height="Auto" IsEnabled="True" Canvas.Left="806.989051094891" Canvas.Top="79.951635583654" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsTextValue Value="ModeRight25" Key="Position" DropDownNumber="1" />
+          <FlsBase:FlsBooleanValue Value="True" Key="EnTagInfo" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol TagCode="080SJ963M01" IsSelectable="True" FileName="AcesysV8.Pump" Build="4" Width="Auto" Height="Auto" IsEnabled="True" Canvas.Left="730.644997923914" Canvas.Top="711.923544747489" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsTextValue Value="RotateRight25" Key="Direction" DropDownNumber="1" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <TextBlock Text="080-SJ-963" FontSize="13.5" Foreground="{Binding Parent, Converter={FlsBase:WhiteBackgroundColorConverter #FFEBEBC7, true}}" TextAlignment="Right" Width="Auto" IsEnabled="True" Canvas.Left="700.496579524502" Canvas.Top="813.010235653832" />
+    <FlsBase:DynamicSymbol TagCode="080SJ963D01L41" IsSelectable="True" FileName="AcesysV8.AlarmPoint" Build="3" StaticText="L" Width="Auto" Height="15" IsEnabled="True" Canvas.Left="766.295620437956" Canvas.Top="767.207792207792" ToolTipType="AcesysV8.StandardToolTipWithValue" />
+    <FlsBase:DynamicSymbol TagCode="080SN550M01" IsSelectable="True" FileName="AcesysV8.Motor" Build="3" Width="Auto" Height="Auto" IsEnabled="True" Canvas.Left="17.9569138575645" Canvas.Top="555.909427791447" ToolTipType="AcesysV8.StandardToolTipWithValue" />
+    <FlsBase:DynamicSymbol TagCode="080SN550M02" IsSelectable="True" FileName="AcesysV8.Motor" Build="3" Width="Auto" Height="Auto" IsEnabled="True" Canvas.Left="47.7014394050097" Canvas.Top="555.909427791447" ToolTipType="AcesysV8.StandardToolTipWithValue" />
+    <TextBlock Text="080-SN-550" FontSize="13.5" Foreground="{Binding Parent, Converter={FlsBase:WhiteBackgroundColorConverter #FFEBEBC7, true}}" TextAlignment="Right" Width="Auto" IsEnabled="True" Canvas.Left="45.6266477858644" Canvas.Top="524.153828389222" />
+    <FlsBase:DynamicSymbol TagCode="080SN550M01I01" IsSelectable="True" FileName="AcesysV8.PointValueDisplay" Build="5" Width="106.840528309774" Height="Auto" IsEnabled="True" Canvas.Left="2.97463410092097" Canvas.Top="585.064935064935" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsDoubleValue Value="18" Key="FontSize" />
+          <FlsBase:FlsDoubleValue Value="12" Key="FontSizeUnit" />
+          <FlsBase:FlsTextValue Value="Bold" Key="FontWeight" DropDownNumber="1" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol TagCode="080SN550M02I01" IsSelectable="True" FileName="AcesysV8.PointValueDisplay" Build="5" Width="106.840528309774" Height="Auto" IsEnabled="True" Canvas.Left="2.97463410092097" Canvas.Top="607.5" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsDoubleValue Value="18" Key="FontSize" />
+          <FlsBase:FlsDoubleValue Value="12" Key="FontSizeUnit" />
+          <FlsBase:FlsTextValue Value="Bold" Key="FontWeight" DropDownNumber="1" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol TagCode="080SJ963M01I01" IsSelectable="True" FileName="AcesysV8.PointValueDisplay" Build="5" Width="106.840528309774" Height="Auto" IsEnabled="True" Canvas.Left="792.5" Canvas.Top="791.25" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsDoubleValue Value="18" Key="FontSize" />
+          <FlsBase:FlsDoubleValue Value="12" Key="FontSizeUnit" />
+          <FlsBase:FlsTextValue Value="Bold" Key="FontWeight" DropDownNumber="1" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol TagCode="2080SU570N01L01" IsSelectable="True" FileName="AcesysV8.FillBar" Build="2" Width="11.8978102189781" Height="77.2727272727273" IsEnabled="True" Canvas.Left="18.7956204379562" Canvas.Top="656.818181818182" />
+    <Button Padding="10,0,10,0" Width="74.3613138686131" Height="22.0779220779221" Margin="0,0,0,0" IsEnabled="True" Canvas.Left="1120" Canvas.Top="170" FlsBase:Info.Owner="Tag:::080TN591A01103_0%%%CC:::FT" FlsBase:Info.DataParent="{Binding Parent}" Command="{Binding BaseCommand}">
+      <TextBlock Text="TN-590" FontSize="14" IsEnabled="True" />
+      <Button.CommandParameter>
+        <FlsBase:TextArgument FlsCommand="PopupWindow" Value="pavlik_080tn590_new_popup" />
+      </Button.CommandParameter>
+    </Button>
+    <TextBlock Text="080-TN-590" FontSize="13.5" Foreground="#FF000000" TextAlignment="Center" Width="Auto" IsEnabled="True" Canvas.Left="919.39835584506" Canvas.Top="208.336922364338" />
+    <TextBlock Text="2080-TK-900" FontSize="13.5" Foreground="#FF000000" TextAlignment="Right" Width="Auto" IsEnabled="True" Canvas.Left="178.396727666182" Canvas.Top="292.766182221912" />
+    <TextBlock Text="2080-SM-510" FontSize="13.5" Foreground="{Binding Parent, Converter={FlsBase:WhiteBackgroundColorConverter #FFEBEBC7, true}}" TextAlignment="Right" Width="Auto" IsEnabled="True" Canvas.Left="60" Canvas.Top="110" />
+    <FlsBase:EntrySymbol TagCode="2080SM510A01SP01" IsSelectable="True" FileName="AcesysV8.PointValueEntry" Build="6" Width="120" Height="Auto" IsEnabled="True" Canvas.Left="55" Canvas.Top="170" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:EntrySymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsBinaryValue Value="40" Key="UnitSize" DropDownNumber="2" />
+          <FlsBase:FlsDoubleValue Value="12" Key="FontSizeUnit" />
+          <FlsBase:FlsTextValue Value="Bold" Key="FontWeight" DropDownNumber="1" />
+          <FlsBase:FlsDoubleValue Value="18" Key="FontSize" />
+        </FlsBase:FlsCollection>
+      </FlsBase:EntrySymbol.Variables>
+    </FlsBase:EntrySymbol>
+    <FlsBase:DynamicSymbol TagCode="2080SM510A01" IsSelectable="True" FileName="AcesysV8.Motor" Build="3" Width="Auto" Height="Auto" IsEnabled="True" Canvas.Left="87.5" Canvas.Top="140" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsTextValue Value="ModeRight25" Key="Position" DropDownNumber="1" />
+          <FlsBase:FlsBooleanValue Value="True" Key="EnTagInfo" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <Rectangle StrokeThickness="1" StrokeDashArray="" Width="1630" Height="40" IsEnabled="True" Canvas.Left="0" Canvas.Top="0" Stroke="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Linebrush}}" />
+    <FlsBase:Picture FileName="logo" Build="0" Width="Auto" Height="37.5" IsEnabled="True" Canvas.Left="0" Canvas.Top="1.25" />
+    <FlsBase:StaticPart FileName="StaticBasicStyle.DateTimeDisplay" Build="1002" Width="160" Height="25" IsEnabled="True" Canvas.Left="1360" Canvas.Top="7.5">
+      <FlsBase:StaticPart.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsTextValue Value="Left" Key="HorizontalAlignment" />
+          <FlsBase:FlsTextValue Value="DateTime" Key="DT_Format" />
+          <FlsBase:FlsDoubleValue Value="16" Key="FontSize" />
+          <FlsBase:FlsObjectValue Key="FontColor" FlsBase:Info.Caption="_Static Text General">
+            <FlsBase:FlsObjectValue.Value>
+              <SolidColorBrush>#FFFAFAD2</SolidColorBrush>
+            </FlsBase:FlsObjectValue.Value>
+          </FlsBase:FlsObjectValue>
+        </FlsBase:FlsCollection>
+      </FlsBase:StaticPart.Variables>
+    </FlsBase:StaticPart>
+    <Rectangle StrokeThickness="1" StrokeDashArray="" Width="145" Height="90" IsEnabled="True" Canvas.Left="40" Canvas.Top="110" Stroke="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Linebrush}}" />
+    <Button Padding="10,0,10,0" Height="23" Margin="0,0,0,0" IsEnabled="True" Canvas.Left="7.5" Canvas.Top="231.25" Command="{Binding BaseCommand}">
+      <TextBlock Text="350-TK-900" FontSize="14" IsEnabled="True" />
+      <Button.CommandParameter>
+        <FlsBase:TextArgument FlsCommand="ChangeMimic" Value="993_mimic_13" />
+      </Button.CommandParameter>
+    </Button>
+    <FlsBase:StickyLine IsEnabled="True" FlsBase:ExtendOwner.IsSelectable="True" Foreground="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Material Flow}}">
+      <FlsBase:StickyLine.LineData>
+        <FlsBase:StickyLineData UseTagColor="False" FreeDirections="False" LineStyle="Solid" StartHorizontaly="False" Thickness="1" ArrowThickness="1" ArrowClosed="True" ArrowLength="12" ArrowAngle="45" StartPoint="210,190" EndPoint="210,225" IntermediatePoints="210,225">
+          <FlsBase:StickyLineData.Arrows>
+            <FlsBase:ArrowSetting LineNumber="1" ArrowEnd="True" Inverted="False" />
+          </FlsBase:StickyLineData.Arrows>
+        </FlsBase:StickyLineData>
+      </FlsBase:StickyLine.LineData>
+    </FlsBase:StickyLine>
+    <FlsBase:StickyLine IsEnabled="True" Canvas.Left="0" Canvas.Top="0" FlsBase:ExtendOwner.IsSelectable="True" Foreground="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Oil Flow}}">
+      <FlsBase:StickyLine.LineData>
+        <FlsBase:StickyLineData UseTagColor="False" FreeDirections="False" LineStyle="Solid" StartHorizontaly="True" Thickness="1" ArrowThickness="1" ArrowClosed="True" ArrowLength="12" ArrowAngle="45" StartPoint="242.5,152.5" EndPoint="542.5,625" IntermediatePoints="600,152.5 600,625" />
+      </FlsBase:StickyLine.LineData>
+    </FlsBase:StickyLine>
+    <Button Padding="10,0,10,0" Width="104.01" Height="23" Margin="0,0,0,0" IsEnabled="True" Canvas.Left="12.5" Canvas.Top="495" xmlns:sc="clr-namespace:System.Collections;assembly=mscorlib" Command="{Binding BaseCommand}">
+      <FlsBase:Info.Connections>
+        <sc:ArrayList Capacity="4">
+          <FlsBase:ConnectionInfo ConnectId="b7745144-818d-4cd6-9d98-0f5195a81d4b" RelativePosition="1,0.5" FixedPoint="{x:Null}" Offset="{x:Null}" />
+        </sc:ArrayList>
+      </FlsBase:Info.Connections>
+      <TextBlock Text="080-TK-507" FontSize="14" IsEnabled="True" />
+      <Button.CommandParameter>
+        <FlsBase:TextArgument FlsCommand="ChangeMimic" Value="994_mimic_03" />
+      </Button.CommandParameter>
+    </Button>
+    <FlsBase:StickyLine IsEnabled="True" FlsBase:ExtendOwner.IsSelectable="True" Foreground="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Material Flow}}">
+      <FlsBase:StickyLine.LineData>
+        <FlsBase:StickyLineData UseTagColor="False" FreeDirections="False" LineStyle="Solid" StartHorizontaly="True" Thickness="1" ArrowThickness="1" ArrowClosed="True" ArrowLength="12" ArrowAngle="45" StartPoint="116.51,474" EndPoint="142.5,537.5" IntermediatePoints="142.5,474">
+          <FlsBase:StickyLineData.Arrows>
+            <FlsBase:ArrowSetting LineNumber="2" ArrowEnd="True" Inverted="False" />
+            <FlsBase:ArrowSetting LineNumber="1" ArrowEnd="True" Inverted="False" />
+          </FlsBase:StickyLineData.Arrows>
+        </FlsBase:StickyLineData>
+      </FlsBase:StickyLine.LineData>
+    </FlsBase:StickyLine>
+    <FlsBase:StickyLine IsEnabled="True" Canvas.Left="0" Canvas.Top="32.5" FlsBase:ExtendOwner.IsSelectable="True" Foreground="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Material Flow}}">
+      <FlsBase:StickyLine.LineData>
+        <FlsBase:StickyLineData UseTagColor="False" FreeDirections="False" LineStyle="Solid" StartHorizontaly="True" Thickness="1" ArrowThickness="1" ArrowClosed="True" ArrowLength="12" ArrowAngle="45" StickyStartPoint="b7745144-818d-4cd6-9d98-0f5195a81d4b" StartPoint="116.51,474" EndPoint="128.75,508.75" IntermediatePoints="128.75,474">
+          <FlsBase:StickyLineData.Arrows>
+            <FlsBase:ArrowSetting LineNumber="2" ArrowEnd="True" Inverted="False" />
+          </FlsBase:StickyLineData.Arrows>
+        </FlsBase:StickyLineData>
+      </FlsBase:StickyLine.LineData>
+    </FlsBase:StickyLine>
+    <FlsBase:StickyLine IsEnabled="True" Canvas.Left="-90" Canvas.Top="397.5" FlsBase:ExtendOwner.IsSelectable="True" Foreground="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Material Flow}}">
+      <FlsBase:StickyLine.LineData>
+        <FlsBase:StickyLineData UseTagColor="False" FreeDirections="False" LineStyle="Solid" StartHorizontaly="False" Thickness="1" ArrowThickness="1" ArrowClosed="True" ArrowLength="12" ArrowAngle="45" StartPoint="210,190" EndPoint="210,257.5" IntermediatePoints="210,257.5">
+          <FlsBase:StickyLineData.Arrows>
+            <FlsBase:ArrowSetting LineNumber="1" ArrowEnd="True" Inverted="False" />
+          </FlsBase:StickyLineData.Arrows>
+        </FlsBase:StickyLineData>
+      </FlsBase:StickyLine.LineData>
+    </FlsBase:StickyLine>
+    <FlsBase:StickyLine IsEnabled="True" FlsBase:ExtendOwner.IsSelectable="True" Foreground="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Water Flow}}">
+      <FlsBase:StickyLine.LineData>
+        <FlsBase:StickyLineData UseTagColor="False" FreeDirections="False" LineStyle="Solid" StartHorizontaly="True" Thickness="1" ArrowThickness="1" ArrowClosed="True" ArrowLength="12" ArrowAngle="45" StartPoint="116.51,441.5" EndPoint="275,480" IntermediatePoints="275,441.5">
+          <FlsBase:StickyLineData.Arrows>
+            <FlsBase:ArrowSetting LineNumber="1" ArrowEnd="True" Inverted="False" />
+            <FlsBase:ArrowSetting LineNumber="2" ArrowEnd="True" Inverted="False" />
+          </FlsBase:StickyLineData.Arrows>
+        </FlsBase:StickyLineData>
+      </FlsBase:StickyLine.LineData>
+    </FlsBase:StickyLine>
+    <FlsBase:StickyLine IsEnabled="True" Canvas.Left="-53.75" Canvas.Top="-52.5" FlsBase:ExtendOwner.IsSelectable="True" Foreground="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Water Flow}}">
+      <FlsBase:StickyLine.LineData>
+        <FlsBase:StickyLineData UseTagColor="False" FreeDirections="False" LineStyle="Solid" StartHorizontaly="False" Thickness="1" ArrowThickness="1" ArrowClosed="True" ArrowLength="12" ArrowAngle="45" StartPoint="273.75,597.5" EndPoint="368.75,600" IntermediatePoints="273.75,535 368.75,535">
+          <FlsBase:StickyLineData.Arrows>
+            <FlsBase:ArrowSetting LineNumber="3" ArrowEnd="True" Inverted="False" />
+            <FlsBase:ArrowSetting LineNumber="1" ArrowEnd="False" Inverted="False" />
+          </FlsBase:StickyLineData.Arrows>
+        </FlsBase:StickyLineData>
+      </FlsBase:StickyLine.LineData>
+    </FlsBase:StickyLine>
+    <FlsBase:DynamicSymbol TagCode="2080SP580Y05" IsSelectable="True" FileName="AcesysV8.ValveOnOff" Build="4" Width="15.3416951497393" Height="Auto" IsEnabled="True" Canvas.Left="212.5" Canvas.Top="497.5" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsBooleanValue Value="True" Key="EnTagInfo" />
+          <FlsBase:FlsBooleanValue Value="False" Key="Inverted" />
+          <FlsBase:FlsBooleanValue Value="True" Key="SetMimicBackground" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:StickyLine IsEnabled="True" FlsBase:ExtendOwner.IsSelectable="True" Foreground="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Water Flow}}">
+      <FlsBase:StickyLine.LineData>
+        <FlsBase:StickyLineData UseTagColor="False" FreeDirections="False" LineStyle="Solid" StartHorizontaly="False" Thickness="1" ArrowThickness="1" ArrowClosed="True" ArrowLength="12" ArrowAngle="45" StartPoint="180,442.5" EndPoint="270,647.5" IntermediatePoints="180,621.25 270,621.25">
+          <FlsBase:StickyLineData.Arrows>
+            <FlsBase:ArrowSetting LineNumber="3" ArrowEnd="True" Inverted="False" />
+          </FlsBase:StickyLineData.Arrows>
+        </FlsBase:StickyLineData>
+      </FlsBase:StickyLine.LineData>
+    </FlsBase:StickyLine>
+    <FlsBase:StickyLine IsEnabled="True" Canvas.Left="-53.75" Canvas.Top="112.5" FlsBase:ExtendOwner.IsSelectable="True" Foreground="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Water Flow}}">
+      <FlsBase:StickyLine.LineData>
+        <FlsBase:StickyLineData UseTagColor="False" FreeDirections="False" LineStyle="Solid" StartHorizontaly="False" Thickness="1" ArrowThickness="1" ArrowClosed="True" ArrowLength="12" ArrowAngle="45" StartPoint="273.75,597.5" EndPoint="368.75,597.5" IntermediatePoints="273.75,535 368.75,535">
+          <FlsBase:StickyLineData.Arrows>
+            <FlsBase:ArrowSetting LineNumber="3" ArrowEnd="True" Inverted="False" />
+            <FlsBase:ArrowSetting LineNumber="1" ArrowEnd="False" Inverted="False" />
+          </FlsBase:StickyLineData.Arrows>
+        </FlsBase:StickyLineData>
+      </FlsBase:StickyLine.LineData>
+    </FlsBase:StickyLine>
+    <FlsBase:DynamicSymbol TagCode="2080SP530Y05" IsSelectable="True" FileName="AcesysV8.ValveOnOff" Build="4" Width="15.3416951497393" Height="Auto" IsEnabled="True" Canvas.Left="212.5" Canvas.Top="662.5" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsBooleanValue Value="True" Key="EnTagInfo" />
+          <FlsBase:FlsBooleanValue Value="False" Key="Inverted" />
+          <FlsBase:FlsBooleanValue Value="True" Key="SetMimicBackground" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol TagCode="2080SP530Y08" IsSelectable="True" FileName="AcesysV8.ValveOnOff" Build="4" Width="15.3416951497393" Height="Auto" IsEnabled="True" Canvas.Left="307.5" Canvas.Top="662.5" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsBooleanValue Value="True" Key="EnTagInfo" />
+          <FlsBase:FlsBooleanValue Value="False" Key="Inverted" />
+          <FlsBase:FlsBooleanValue Value="True" Key="SetMimicBackground" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:StickyLine IsEnabled="True" Canvas.Left="145" Canvas.Top="390" FlsBase:ExtendOwner.IsSelectable="True" Foreground="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Oil Flow}}">
+      <FlsBase:StickyLine.LineData>
+        <FlsBase:StickyLineData UseTagColor="False" FreeDirections="False" LineStyle="Solid" StartHorizontaly="True" Thickness="1" ArrowThickness="1" ArrowClosed="True" ArrowLength="12" ArrowAngle="45" StartPoint="145,158.75" EndPoint="145,227.5" IntermediatePoints="145,158.75">
+          <FlsBase:StickyLineData.Arrows>
+            <FlsBase:ArrowSetting LineNumber="2" ArrowEnd="True" Inverted="False" />
+          </FlsBase:StickyLineData.Arrows>
+        </FlsBase:StickyLineData>
+      </FlsBase:StickyLine.LineData>
+    </FlsBase:StickyLine>
+    <FlsBase:DynamicSymbol TagCode="2080SP580Y03" IsSelectable="True" FileName="AcesysV8.ValveOnOff" Build="4" Width="15.3416951497393" Height="Auto" IsEnabled="True" Canvas.Left="282.5" Canvas.Top="567.5" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsBooleanValue Value="True" Key="EnTagInfo" />
+          <FlsBase:FlsBooleanValue Value="False" Key="Inverted" />
+          <FlsBase:FlsBooleanValue Value="True" Key="SetMimicBackground" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:StickyLine IsEnabled="True" Canvas.Left="145" Canvas.Top="552.5" FlsBase:ExtendOwner.IsSelectable="True" Foreground="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Oil Flow}}">
+      <FlsBase:StickyLine.LineData>
+        <FlsBase:StickyLineData UseTagColor="False" FreeDirections="False" LineStyle="Solid" StartHorizontaly="True" Thickness="1" ArrowThickness="1" ArrowClosed="True" ArrowLength="12" ArrowAngle="45" StartPoint="145,158.75" EndPoint="145,227.5" IntermediatePoints="145,158.75">
+          <FlsBase:StickyLineData.Arrows>
+            <FlsBase:ArrowSetting LineNumber="2" ArrowEnd="True" Inverted="False" />
+          </FlsBase:StickyLineData.Arrows>
+        </FlsBase:StickyLineData>
+      </FlsBase:StickyLine.LineData>
+    </FlsBase:StickyLine>
+    <FlsBase:DynamicSymbol TagCode="2080SP530Y03" IsSelectable="True" FileName="AcesysV8.ValveOnOff" Build="4" Width="15.3416951497393" Height="Auto" IsEnabled="True" Canvas.Left="282.32915242513" Canvas.Top="730" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsBooleanValue Value="True" Key="EnTagInfo" />
+          <FlsBase:FlsBooleanValue Value="False" Key="Inverted" />
+          <FlsBase:FlsBooleanValue Value="True" Key="SetMimicBackground" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:StickyLine IsEnabled="True" Canvas.Left="503.75" Canvas.Top="-115" FlsBase:ExtendOwner.IsSelectable="True" Foreground="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Linebrush}}">
+      <FlsBase:StickyLine.LineData>
+        <FlsBase:StickyLineData UseTagColor="False" FreeDirections="True" LineStyle="Solid" StartHorizontaly="False" Thickness="1" ArrowThickness="1" ArrowClosed="True" ArrowLength="12" ArrowAngle="45" StartPoint="145,158.75" EndPoint="145,960" IntermediatePoints="" />
+      </FlsBase:StickyLine.LineData>
+    </FlsBase:StickyLine>
+    <Button Padding="10,0,10,0" Width="106.085766423358" Height="22.0779220779221" Margin="0,0,0,0" IsEnabled="True" Canvas.Left="651.25" Canvas.Top="193.75" Command="{Binding BaseCommand}">
+      <TextBlock Text="080-MC-480" FontSize="14" IsEnabled="True" />
+      <Button.CommandParameter>
+        <FlsBase:TextArgument FlsCommand="ChangeMimic" Value="994_mimic_03" />
+      </Button.CommandParameter>
+    </Button>
+    <FlsBase:StickyLine IsEnabled="True" Canvas.Left="288.75" Canvas.Top="-120" FlsBase:ExtendOwner.IsSelectable="True" Foreground="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Material Flow}}">
+      <FlsBase:StickyLine.LineData>
+        <FlsBase:StickyLineData UseTagColor="False" FreeDirections="False" LineStyle="Solid" StartHorizontaly="True" Thickness="1" ArrowThickness="1" ArrowClosed="True" ArrowLength="12" ArrowAngle="45" StartPoint="824.835766423358,334.788961038961" EndPoint="1101.25,335.519480519481" IntermediatePoints="1101.25,334.788961038961" />
+      </FlsBase:StickyLine.LineData>
+    </FlsBase:StickyLine>
+    <FlsBase:StickyLine IsEnabled="True" Canvas.Left="488.75" Canvas.Top="127.5" FlsBase:ExtendOwner.IsSelectable="True" Foreground="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Water Flow}}">
+      <FlsBase:StickyLine.LineData>
+        <FlsBase:StickyLineData UseTagColor="False" FreeDirections="False" LineStyle="Solid" StartHorizontaly="True" Thickness="1" ArrowThickness="1" ArrowClosed="True" ArrowLength="12" ArrowAngle="45" StartPoint="266.894997923914,596.923544747489" EndPoint="336.25,62.5" IntermediatePoints="288.75,596.923544747489 288.75,42.5 336.25,42.5">
+          <FlsBase:StickyLineData.Arrows>
+            <FlsBase:ArrowSetting LineNumber="2" ArrowEnd="True" Inverted="False" />
+            <FlsBase:ArrowSetting LineNumber="4" ArrowEnd="True" Inverted="False" />
+          </FlsBase:StickyLineData.Arrows>
+        </FlsBase:StickyLineData>
+      </FlsBase:StickyLine.LineData>
+    </FlsBase:StickyLine>
+    <FlsBase:StickyLine IsEnabled="True" Canvas.Left="753.75" Canvas.Top="245" FlsBase:ExtendOwner.IsSelectable="True" Foreground="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Material Flow}}">
+      <FlsBase:StickyLine.LineData>
+        <FlsBase:StickyLineData UseTagColor="False" FreeDirections="False" LineStyle="Solid" StartHorizontaly="False" Thickness="1" ArrowThickness="1" ArrowClosed="True" ArrowLength="12" ArrowAngle="45" StickyStartPoint="92114709-a40b-452c-8fee-6c45de075554" StartPoint="204.375,63.7500000000002" EndPoint="507.5,400" IntermediatePoints="204.375,325 507.5,325">
+          <FlsBase:StickyLineData.Arrows>
+            <FlsBase:ArrowSetting LineNumber="1" ArrowEnd="True" Inverted="False" />
+            <FlsBase:ArrowSetting LineNumber="2" ArrowEnd="True" Inverted="False" />
+            <FlsBase:ArrowSetting LineNumber="3" ArrowEnd="True" Inverted="False" />
+          </FlsBase:StickyLineData.Arrows>
+        </FlsBase:StickyLineData>
+      </FlsBase:StickyLine.LineData>
+    </FlsBase:StickyLine>
+    <FlsBase:StickyLine IsEnabled="True" Canvas.Left="733.75" Canvas.Top="247.5" FlsBase:ExtendOwner.IsSelectable="True" Foreground="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Material Flow}}">
+      <FlsBase:StickyLine.LineData>
+        <FlsBase:StickyLineData UseTagColor="False" FreeDirections="False" LineStyle="Solid" StartHorizontaly="False" Thickness="1" ArrowThickness="1" ArrowClosed="True" ArrowLength="12" ArrowAngle="45" StartPoint="211.25,57.5" EndPoint="527.5,398.75" IntermediatePoints="211.25,483.75 527.5,483.75">
+          <FlsBase:StickyLineData.Arrows>
+            <FlsBase:ArrowSetting LineNumber="1" ArrowEnd="True" Inverted="False" />
+            <FlsBase:ArrowSetting LineNumber="2" ArrowEnd="True" Inverted="False" />
+            <FlsBase:ArrowSetting LineNumber="3" ArrowEnd="True" Inverted="False" />
+          </FlsBase:StickyLineData.Arrows>
+        </FlsBase:StickyLineData>
+      </FlsBase:StickyLine.LineData>
+    </FlsBase:StickyLine>
+    <FlsBase:DynamicSymbol TagCode="2080SP601U01" IsSelectable="True" FileName="AcesysV8.Pump" Build="4" Width="Auto" Height="Auto" IsEnabled="True" Canvas.Left="1147.02554744526" Canvas.Top="557.678571428571" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsTextValue Value="RotateRight25" Key="Direction" DropDownNumber="1" />
+          <FlsBase:FlsBooleanValue Value="True" Key="EnTagInfo" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol TagCode="2080SP600U01" IsSelectable="True" FileName="AcesysV8.Pump" Build="4" Width="Auto" Height="Auto" IsEnabled="True" Canvas.Left="1147.02554744526" Canvas.Top="718.904064228008" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsTextValue Value="RotateRight25" Key="Direction" DropDownNumber="1" />
+          <FlsBase:FlsBooleanValue Value="True" Key="EnTagInfo" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:StickyLine IsEnabled="True" Canvas.Left="915" Canvas.Top="411.25" FlsBase:ExtendOwner.IsSelectable="True" Foreground="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Material Flow}}">
+      <FlsBase:StickyLine.LineData>
+        <FlsBase:StickyLineData UseTagColor="False" FreeDirections="False" LineStyle="Solid" StartHorizontaly="True" Thickness="1" ArrowThickness="1" ArrowClosed="True" ArrowLength="12" ArrowAngle="45" StartPoint="145,158.75" EndPoint="145,227.5" IntermediatePoints="145,158.75">
+          <FlsBase:StickyLineData.Arrows>
+            <FlsBase:ArrowSetting LineNumber="2" ArrowEnd="True" Inverted="False" />
+          </FlsBase:StickyLineData.Arrows>
+        </FlsBase:StickyLineData>
+      </FlsBase:StickyLine.LineData>
+    </FlsBase:StickyLine>
+    <FlsBase:StickyLine IsEnabled="True" Canvas.Left="905" Canvas.Top="572.5" FlsBase:ExtendOwner.IsSelectable="True" Foreground="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Material Flow}}">
+      <FlsBase:StickyLine.LineData>
+        <FlsBase:StickyLineData UseTagColor="False" FreeDirections="False" LineStyle="Solid" StartHorizontaly="True" Thickness="1" ArrowThickness="1" ArrowClosed="True" ArrowLength="12" ArrowAngle="45" StartPoint="145,158.75" EndPoint="145,227.5" IntermediatePoints="145,158.75">
+          <FlsBase:StickyLineData.Arrows>
+            <FlsBase:ArrowSetting LineNumber="2" ArrowEnd="True" Inverted="False" />
+          </FlsBase:StickyLineData.Arrows>
+        </FlsBase:StickyLineData>
+      </FlsBase:StickyLine.LineData>
+    </FlsBase:StickyLine>
+    <Button Padding="10,0,10,0" Width="106.085766423358" Height="22.0779220779221" Margin="0,0,0,0" IsEnabled="True" Canvas.Left="1497.5" Canvas.Top="795" Command="{Binding BaseCommand}">
+      <TextBlock Text="080-TK-500" FontSize="14" IsEnabled="True" />
+      <Button.CommandParameter>
+        <FlsBase:TextArgument FlsCommand="ChangeMimic" Value="994_mimic_03" />
+      </Button.CommandParameter>
+    </Button>
+    <FlsBase:StickyLine RenderTransform="-1,1.22460635382238E-16,-1.22460635382238E-16,-1,2863.75,1290" IsEnabled="True" Canvas.Left="-72.5" Canvas.Top="0" FlsBase:ExtendOwner.IsSelectable="True" Foreground="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Material Flow}}">
+      <FlsBase:StickyLine.LineData>
+        <FlsBase:StickyLineData UseTagColor="False" FreeDirections="False" LineStyle="Solid" StartHorizontaly="True" Thickness="1" ArrowThickness="1" ArrowClosed="True" ArrowLength="12" ArrowAngle="45" StickyStartPoint="4cbe451c-cae2-4ae3-a4d9-87d005280fcb" StartPoint="1246.25,643.75" EndPoint="1530,645" IntermediatePoints="1530,643.75">
+          <FlsBase:StickyLineData.Arrows>
+            <FlsBase:ArrowSetting LineNumber="1" ArrowEnd="False" Inverted="False" />
+          </FlsBase:StickyLineData.Arrows>
+        </FlsBase:StickyLineData>
+      </FlsBase:StickyLine.LineData>
+    </FlsBase:StickyLine>
+    <FlsBase:StickyLine IsEnabled="True" Canvas.Left="-72.5" Canvas.Top="-130" FlsBase:ExtendOwner.IsSelectable="True" Foreground="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Water Flow}}">
+      <FlsBase:StickyLine.LineData>
+        <FlsBase:StickyLineData UseTagColor="False" FreeDirections="False" LineStyle="Solid" StartHorizontaly="True" Thickness="1" ArrowThickness="1" ArrowClosed="True" ArrowLength="12" ArrowAngle="45" StartPoint="925.054744525548,248.376623376623" EndPoint="958.75,321.25" IntermediatePoints="958.75,248.376623376623">
+          <FlsBase:StickyLineData.Arrows>
+            <FlsBase:ArrowSetting LineNumber="2" ArrowEnd="True" Inverted="False" />
+          </FlsBase:StickyLineData.Arrows>
+        </FlsBase:StickyLineData>
+      </FlsBase:StickyLine.LineData>
+    </FlsBase:StickyLine>
+    <FlsBase:EntrySymbol TagCode="2080SM510_S01" IsSelectable="True" FileName="AcesysV8.SelCheckbox" Build="2" Width="20" Height="20" IsEnabled="True" Canvas.Left="55" Canvas.Top="140" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:EntrySymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsBooleanValue Value="True" Key="2Step" />
+        </FlsBase:FlsCollection>
+      </FlsBase:EntrySymbol.Variables>
+    </FlsBase:EntrySymbol>
+    <FlsBase:EntrySymbol TagCode="2080SP580_S01" IsSelectable="True" FileName="AcesysV8.SelCheckbox" Build="2" Width="20" Height="20" IsEnabled="True" Canvas.Left="350" Canvas.Top="530" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:EntrySymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsBooleanValue Value="True" Key="2Step" />
+        </FlsBase:FlsCollection>
+      </FlsBase:EntrySymbol.Variables>
+    </FlsBase:EntrySymbol>
+    <FlsBase:EntrySymbol TagCode="2080SP530_S01" IsSelectable="True" FileName="AcesysV8.SelCheckbox" Build="2" Width="20" Height="20" IsEnabled="True" Canvas.Left="360" Canvas.Top="690" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:EntrySymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsBooleanValue Value="True" Key="2Step" />
+        </FlsBase:FlsCollection>
+      </FlsBase:EntrySymbol.Variables>
+    </FlsBase:EntrySymbol>
+    <FlsBase:EntrySymbol TagCode="2080SP601_S01" IsSelectable="True" FileName="AcesysV8.SelCheckbox" Build="2" Width="20" Height="20" IsEnabled="True" Canvas.Left="1080" Canvas.Top="540" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:EntrySymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsBooleanValue Value="True" Key="2Step" />
+        </FlsBase:FlsCollection>
+      </FlsBase:EntrySymbol.Variables>
+    </FlsBase:EntrySymbol>
+    <FlsBase:EntrySymbol TagCode="2080SP600_S01" IsSelectable="True" FileName="AcesysV8.SelCheckbox" Build="2" Width="20" Height="20" IsEnabled="True" Canvas.Left="1087.5" Canvas.Top="705" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:EntrySymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsBooleanValue Value="True" Key="2Step" />
+        </FlsBase:FlsCollection>
+      </FlsBase:EntrySymbol.Variables>
+    </FlsBase:EntrySymbol>
+    <Canvas RenderTransform="-1.38461538461538,0,0,1.92307692307692,45,0" Width="32.5" Height="32.5" Tag="HmiGroup" Canvas.Left="1544.9999999999995" Canvas.Top="615" IsEnabled="True">
+      <FlsBase:Info.Connections>
+        <sc:ArrayList>
+          <FlsBase:ConnectionInfo ConnectId="4cbe451c-cae2-4ae3-a4d9-87d005280fcb" RelativePosition="1,0.5" FixedPoint="{x:Null}" Offset="{x:Null}" />
+        </sc:ArrayList>
+      </FlsBase:Info.Connections>
+      <Polygon Points="20,17.5 0,15 0,10 15,10 15,0 32.5,0 32.5,12.5" StrokeThickness="1" StrokeDashArray="" IsEnabled="True" Canvas.Left="0" Canvas.Top="0" Stroke="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Text Inside Object}}">
+        <Polygon.Fill>
+          <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" ColorInterpolationMode="SRgbLinearInterpolation" MappingMode="RelativeToBoundingBox" SpreadMethod="Pad" Opacity="1" Transform="Identity" RelativeTransform="Identity">
+            <LinearGradientBrush.GradientStops>
+              <GradientStop Color="#FF383838" Offset="0" />
+              <GradientStop Color="#FFE5E5E5" Offset="1" />
+            </LinearGradientBrush.GradientStops>
+          </LinearGradientBrush>
+        </Polygon.Fill>
+      </Polygon>
+      <Polygon Points="15,30 15,0 0,0 0,30" StrokeThickness="1" StrokeDashArray="" IsEnabled="True" Canvas.Left="17.5" Canvas.Top="2.5" Stroke="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Text Inside Object}}">
+        <Polygon.Fill>
+          <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" ColorInterpolationMode="SRgbLinearInterpolation" MappingMode="RelativeToBoundingBox" SpreadMethod="Pad" Opacity="1" Transform="Identity" RelativeTransform="Identity">
+            <LinearGradientBrush.GradientStops>
+              <GradientStop Color="#FF383838" Offset="0" />
+              <GradientStop Color="#FFE5E5E5" Offset="1" />
+            </LinearGradientBrush.GradientStops>
+          </LinearGradientBrush>
+        </Polygon.Fill>
+      </Polygon>
+      <Polygon Points="13.75,12.5 13.75,0 27.5,0 27.5,6.25 2.5,22.5 2.5,27.5 0,27.5 0,15 2.5,15 2.5,20" StrokeThickness="1" StrokeDashArray="" IsEnabled="True" Canvas.Left="3.75" Canvas.Top="2.5" Stroke="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Text Inside Object}}">
+        <Polygon.Fill>
+          <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" ColorInterpolationMode="SRgbLinearInterpolation" MappingMode="RelativeToBoundingBox" SpreadMethod="Pad" Opacity="1" Transform="Identity" RelativeTransform="Identity">
+            <LinearGradientBrush.GradientStops>
+              <GradientStop Color="#FF383838" Offset="0" />
+              <GradientStop Color="#FFE5E5E5" Offset="1" />
+            </LinearGradientBrush.GradientStops>
+          </LinearGradientBrush>
+        </Polygon.Fill>
+      </Polygon>
+      <Rectangle StrokeThickness="0.5" StrokeDashArray="" Width="2.5" Height="10" IsEnabled="True" Canvas.Left="3.75" Canvas.Top="7.5" Stroke="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Text Inside Object}}">
+        <Rectangle.Fill>
+          <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" ColorInterpolationMode="SRgbLinearInterpolation" MappingMode="RelativeToBoundingBox" SpreadMethod="Pad" Opacity="1" Transform="Identity" RelativeTransform="Identity">
+            <LinearGradientBrush.GradientStops>
+              <GradientStop Color="#FF383838" Offset="0" />
+              <GradientStop Color="#FFE5E5E5" Offset="1" />
+            </LinearGradientBrush.GradientStops>
+          </LinearGradientBrush>
+        </Rectangle.Fill>
+      </Rectangle>
+    </Canvas>
+    <FlsBase:StickyLine IsEnabled="True" Canvas.Left="1345" Canvas.Top="487.5" FlsBase:ExtendOwner.IsSelectable="True" Foreground="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Material Flow}}">
+      <FlsBase:StickyLine.LineData>
+        <FlsBase:StickyLineData UseTagColor="False" FreeDirections="False" LineStyle="Solid" StartHorizontaly="False" Thickness="1" ArrowThickness="1" ArrowClosed="True" ArrowLength="12" ArrowAngle="45" StartPoint="210,190" EndPoint="210,297.5" IntermediatePoints="210,297.5">
+          <FlsBase:StickyLineData.Arrows>
+            <FlsBase:ArrowSetting LineNumber="1" ArrowEnd="True" Inverted="False" />
+          </FlsBase:StickyLineData.Arrows>
+        </FlsBase:StickyLineData>
+      </FlsBase:StickyLine.LineData>
+    </FlsBase:StickyLine>
+    <TextBlock Text="2080-SM-441" FontSize="13.5" Foreground="{Binding Parent, Converter={FlsBase:WhiteBackgroundColorConverter #FFEBEBC7, true}}" TextAlignment="Right" Width="Auto" IsEnabled="True" Canvas.Left="1426.87166666667" Canvas.Top="695" />
+    <FlsBase:EntrySymbol TagCode="2080SM441A01SP01" IsSelectable="True" FileName="AcesysV8.PointValueEntry" Build="6" Width="115" Height="Auto" IsEnabled="True" Canvas.Left="1405" Canvas.Top="755" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:EntrySymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsBinaryValue Value="40" Key="UnitSize" DropDownNumber="2" />
+          <FlsBase:FlsDoubleValue Value="12" Key="FontSizeUnit" />
+          <FlsBase:FlsTextValue Value="Bold" Key="FontWeight" DropDownNumber="1" />
+          <FlsBase:FlsDoubleValue Value="18" Key="FontSize" />
+        </FlsBase:FlsCollection>
+      </FlsBase:EntrySymbol.Variables>
+    </FlsBase:EntrySymbol>
+    <FlsBase:DynamicSymbol TagCode="2080SM441A01" IsSelectable="True" FileName="AcesysV8.Motor" Build="3" Width="Auto" Height="Auto" IsEnabled="True" Canvas.Left="1445" Canvas.Top="720" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsTextValue Value="ModeRight25" Key="Position" DropDownNumber="1" />
+          <FlsBase:FlsBooleanValue Value="True" Key="EnTagInfo" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <Rectangle StrokeThickness="1" StrokeDashArray="" Width="135" Height="95" IsEnabled="True" Canvas.Left="1395" Canvas.Top="690" Stroke="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Linebrush}}" />
+    <FlsBase:EntrySymbol TagCode="2080SM441_S01" IsSelectable="True" FileName="AcesysV8.SelCheckbox" Build="2" Width="20" Height="20" IsEnabled="True" Canvas.Left="1410" Canvas.Top="720" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:EntrySymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsBooleanValue Value="True" Key="2Step" />
+        </FlsBase:FlsCollection>
+      </FlsBase:EntrySymbol.Variables>
+    </FlsBase:EntrySymbol>
+    <FlsBase:StaticPart FileName="StaticBasicStyle.Sump" Build="0" Width="Auto" Height="32.8125" IsEnabled="True" Canvas.Left="528.4375" Canvas.Top="784.902910505022" />
+    <Polyline Points="0,0 0,50.625" StrokeThickness="1" StrokeDashArray="" IsEnabled="True" Canvas.Left="590.625" Canvas.Top="742.402910505022" Stroke="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Linebrush}}" />
+    <Rectangle RadiusX="5" RadiusY="5" StrokeThickness="0" StrokeDashArray="" Width="20" Height="10" IsEnabled="True" Canvas.Left="580.625" Canvas.Top="784.902910505022" Stroke="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Text Inside Object}}" Fill="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Linebrush}}" />
+    <Rectangle StrokeThickness="0" StrokeDashArray="" Width="15" Height="3.75" IsEnabled="True" Canvas.Left="583.125" Canvas.Top="796.152910505022" Stroke="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Text Inside Object}}" Fill="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Linebrush}}" />
+    <FlsBase:DynamicSymbol TagCode="2080SJ961M01" IsSelectable="True" FileName="AcesysV8.Pump" Build="4" Width="Auto" Height="Auto" IsEnabled="True" Canvas.Left="577.519997923914" Canvas.Top="718.076455252511" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsTextValue Value="RotateRight25" Key="Direction" DropDownNumber="1" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <TextBlock Text="2080-SJ-961" FontSize="13.5" Foreground="{Binding Parent, Converter={FlsBase:WhiteBackgroundColorConverter #FFEBEBC7, true}}" TextAlignment="Right" Width="Auto" IsEnabled="True" Canvas.Left="547.371579524502" Canvas.Top="819.163146158854" />
+    <FlsBase:DynamicSymbol TagCode="2080SJ961D01L41" IsSelectable="True" FileName="AcesysV8.AlarmPoint" Build="3" StaticText="L" Width="Auto" Height="15" IsEnabled="True" Canvas.Left="613.170620437956" Canvas.Top="773.360702712814" ToolTipType="AcesysV8.StandardToolTipWithValue" />
+    <FlsBase:EntrySymbol TagCode="2080SJ961_S01" IsSelectable="True" FileName="AcesysV8.SelCheckbox" Build="2" Width="20" Height="20" IsEnabled="True" Canvas.Left="582.5" Canvas.Top="685" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:EntrySymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsBooleanValue Value="True" Key="2Step" />
+        </FlsBase:FlsCollection>
+      </FlsBase:EntrySymbol.Variables>
+    </FlsBase:EntrySymbol>
+    <FlsBase:DynamicSymbol TagCode="2080SP530N01F01" IsSelectable="True" FileName="AcesysV8.PointValueDisplay" Build="5" Width="106.840528309774" Height="Auto" IsEnabled="True" Canvas.Left="478.065693430657" Canvas.Top="739.090909090909" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsDoubleValue Value="18" Key="FontSize" />
+          <FlsBase:FlsDoubleValue Value="12" Key="FontSizeUnit" />
+          <FlsBase:FlsTextValue Value="Bold" Key="FontWeight" DropDownNumber="1" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol TagCode="2080SP530N02A01" IsSelectable="True" FileName="AcesysV8.PointValueDisplay" Build="5" Width="106.840528309774" Height="Auto" IsEnabled="True" Canvas.Left="478.065693430657" Canvas.Top="765.232683982684" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsDoubleValue Value="18" Key="FontSize" />
+          <FlsBase:FlsDoubleValue Value="12" Key="FontSizeUnit" />
+          <FlsBase:FlsTextValue Value="Bold" Key="FontWeight" DropDownNumber="1" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol TagCode="2080SP530D01F41" IsSelectable="True" FileName="AcesysV8.AlarmPoint" Build="3" StaticText="F" Width="Auto" Height="15" IsEnabled="True" Canvas.Left="430" Canvas.Top="690" ToolTipType="AcesysV8.StandardToolTipWithValue" />
+    <FlsBase:DynamicSymbol TagCode="2080SP530A01P41" IsSelectable="True" FileName="AcesysV8.AlarmPoint" Build="3" StaticText="P" Width="Auto" Height="15" IsEnabled="True" Canvas.Left="450" Canvas.Top="690" ToolTipType="AcesysV8.StandardToolTipWithValue" />
+    <FlsBase:DynamicSymbol TagCode="2080SP530N02U41" IsSelectable="True" FileName="AcesysV8.AlarmPoint" Build="3" StaticText="U" Width="Auto" Height="15" IsEnabled="True" Canvas.Left="470" Canvas.Top="690" ToolTipType="AcesysV8.StandardToolTipWithValue" />
+    <FlsBase:DynamicSymbol TagCode="2080SP580Y08" IsSelectable="True" FileName="AcesysV8.ValveOnOff" Build="4" Width="15.3416951497393" Height="Auto" IsEnabled="True" Canvas.Left="307.5" Canvas.Top="498.722061971029" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsBooleanValue Value="True" Key="EnTagInfo" />
+          <FlsBase:FlsBooleanValue Value="False" Key="Inverted" />
+          <FlsBase:FlsBooleanValue Value="True" Key="SetMimicBackground" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <TextBlock Text="Y08" FontSize="13.5" Foreground="{Binding Parent, Converter={FlsBase:WhiteBackgroundColorConverter #FFEBEBC7, true}}" TextAlignment="Right" Width="Auto" IsEnabled="True" Canvas.Left="331.473272333818" Canvas.Top="495" />
+    <FlsBase:DynamicSymbol TagCode="2080SP600D01F41" IsSelectable="True" FileName="AcesysV8.AlarmPoint" Build="3" StaticText="F" Width="Auto" Height="15" IsEnabled="True" Canvas.Left="1180" Canvas.Top="710" ToolTipType="AcesysV8.StandardToolTipWithValue" />
+    <FlsBase:DynamicSymbol TagCode="2080SP600A01P41" IsSelectable="True" FileName="AcesysV8.AlarmPoint" Build="3" StaticText="P" Width="Auto" Height="15" IsEnabled="True" Canvas.Left="1200" Canvas.Top="710" ToolTipType="AcesysV8.StandardToolTipWithValue" />
+    <FlsBase:DynamicSymbol TagCode="2080SP600N02U41" IsSelectable="True" FileName="AcesysV8.AlarmPoint" Build="3" StaticText="U" Width="Auto" Height="15" IsEnabled="True" Canvas.Left="1220" Canvas.Top="710" ToolTipType="AcesysV8.StandardToolTipWithValue" />
+    <FlsBase:DynamicSymbol TagCode="2080SP600N01F01" IsSelectable="True" FileName="AcesysV8.PointValueDisplay" Build="5" Width="106.840528309774" Height="Auto" IsEnabled="True" Canvas.Left="1340" Canvas.Top="590" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsDoubleValue Value="18" Key="FontSize" />
+          <FlsBase:FlsDoubleValue Value="12" Key="FontSizeUnit" />
+          <FlsBase:FlsTextValue Value="Bold" Key="FontWeight" DropDownNumber="1" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol TagCode="2080SP600N02A01" IsSelectable="True" FileName="AcesysV8.PointValueDisplay" Build="5" Width="106.840528309774" Height="Auto" IsEnabled="True" Canvas.Left="1340" Canvas.Top="614.683441558441" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsDoubleValue Value="18" Key="FontSize" />
+          <FlsBase:FlsDoubleValue Value="12" Key="FontSizeUnit" />
+          <FlsBase:FlsTextValue Value="Bold" Key="FontWeight" DropDownNumber="1" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <TextBlock Text="CIL TAILINGS THICKENER (2080)" FontSize="28" IsEnabled="True" Canvas.Left="617.5" Canvas.Top="0" Foreground="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Static Text General}}" />
+    <Button Padding="10,0,10,0" Width="106.085766423358" Height="22.0779220779221" Margin="0,0,0,0" IsEnabled="True" Canvas.Left="1335" Canvas.Top="204.480519480519" Command="{Binding BaseCommand}">
+      <TextBlock Text="060-SU-354" FontSize="14" IsEnabled="True" />
+      <Button.CommandParameter>
+        <FlsBase:TextArgument FlsCommand="ChangeMimic" Value="993_mimic_14" />
+      </Button.CommandParameter>
+    </Button>
+    <FlsBase:StickyLine IsEnabled="True" FlsBase:ExtendOwner.IsSelectable="True" Foreground="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Material Flow}}">
+      <FlsBase:StickyLine.LineData>
+        <FlsBase:StickyLineData UseTagColor="False" FreeDirections="False" LineStyle="Solid" StartHorizontaly="False" Thickness="1" ArrowThickness="1" ArrowClosed="True" ArrowLength="12" ArrowAngle="45" StartPoint="1480,645" EndPoint="1080,195" IntermediatePoints="1480,100 1080,100">
+          <FlsBase:StickyLineData.Arrows>
+            <FlsBase:ArrowSetting LineNumber="3" ArrowEnd="True" Inverted="False" />
+          </FlsBase:StickyLineData.Arrows>
+        </FlsBase:StickyLineData>
+      </FlsBase:StickyLine.LineData>
+    </FlsBase:StickyLine>
+    <TextBlock Text="TN590Y09" FontSize="13.5" Foreground="{Binding Parent, Converter={FlsBase:WhiteBackgroundColorConverter #FFEBEBC7, true}}" TextAlignment="Right" Width="Auto" IsEnabled="True" Canvas.Left="1470" Canvas.Top="665.203224854572" />
+    <TextBlock Text="TN590Y08" FontSize="13.5" Foreground="{Binding Parent, Converter={FlsBase:WhiteBackgroundColorConverter #FFEBEBC7, true}}" TextAlignment="Right" Width="Auto" IsEnabled="True" Canvas.Left="1502.5" Canvas.Top="455" />
+    <FlsBase:EntrySymbol TagCode="2080TN590Y08_S01" IsSelectable="True" FileName="AcesysV8.SelCheckbox" Build="2" Width="20" Height="20" IsEnabled="True" Canvas.Left="1517.5" Canvas.Top="420" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:EntrySymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsBooleanValue Value="True" Key="2Step" />
+        </FlsBase:FlsCollection>
+      </FlsBase:EntrySymbol.Variables>
+    </FlsBase:EntrySymbol>
+    <FlsBase:EntrySymbol TagCode="2080TN590Y09_S01" IsSelectable="True" FileName="AcesysV8.SelCheckbox" Build="2" Width="20" Height="20" IsEnabled="True" Canvas.Left="1490" Canvas.Top="600" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:EntrySymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsBooleanValue Value="True" Key="2Step" />
+        </FlsBase:FlsCollection>
+      </FlsBase:EntrySymbol.Variables>
+    </FlsBase:EntrySymbol>
+    <FlsBase:DynamicSymbol ExtendObject="{x:Type fepuipa:PointConfViewModel}" TagCode="2080TN590I01" IsSelectable="True" FileName="AcesysV8.PIDDisplay" Build="3" Width="137.5" Height="Auto" IsEnabled="True" Canvas.Left="1100" Canvas.Top="610" xmlns:fepuipa="clr-namespace:Fls.Ecc.Pnt.UI.PA;assembly=Fls.Ecc.Pnt.UI" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsBooleanValue Value="False" Key="Show_SPM" />
+          <FlsBase:FlsDoubleValue Value="18" Key="FontSize" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol TagCode="2080TN590N01A01" IsSelectable="True" FileName="AcesysV8.PointValueDisplay" Build="5" Width="106.840528309774" Height="Auto" IsEnabled="True" Canvas.Left="802.5" Canvas.Top="290" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsDoubleValue Value="18" Key="FontSize" />
+          <FlsBase:FlsDoubleValue Value="12" Key="FontSizeUnit" />
+          <FlsBase:FlsTextValue Value="Bold" Key="FontWeight" DropDownNumber="1" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol TagCode="2080TN590N02P01" IsSelectable="True" FileName="AcesysV8.PointValueDisplay" Build="5" Width="106.840528309774" Height="Auto" IsEnabled="True" Canvas.Left="802.5" Canvas.Top="315.308441558441" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsDoubleValue Value="18" Key="FontSize" />
+          <FlsBase:FlsDoubleValue Value="12" Key="FontSizeUnit" />
+          <FlsBase:FlsTextValue Value="Bold" Key="FontWeight" DropDownNumber="1" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:StaticPart FileName="StaticBasicStyle.FlsLogo1" Build="1001" Width="100" Height="27" IsEnabled="True" Canvas.Left="1525" Canvas.Top="7.5" />
+    <FlsBase:DynamicSymbol TagCode="RX04_TX03" IsSelectable="True" FileName="AcesysV8.PointValueDisplay" Build="5" Width="120" Height="Auto" IsEnabled="True" Canvas.Left="440" Canvas.Top="350" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsBinaryValue Value="40" Key="UnitSize" DropDownNumber="2" />
+          <FlsBase:FlsDoubleValue Value="18" Key="FontSize" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <TextBlock Text="Receive Data From 993" IsEnabled="True" Canvas.Left="440" Canvas.Top="330" Foreground="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Static Text General}}" />
+    <TextBlock Text="Receive Data From 996" IsEnabled="True" Canvas.Left="440" Canvas.Top="270" Foreground="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Static Text General}}" />
+    <FlsBase:DynamicSymbol TagCode="RX04_TX06" IsSelectable="True" FileName="AcesysV8.PointValueDisplay" Build="5" Width="120" Height="Auto" IsEnabled="True" Canvas.Left="440" Canvas.Top="290" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsBinaryValue Value="40" Key="UnitSize" DropDownNumber="2" />
+          <FlsBase:FlsDoubleValue Value="18" Key="FontSize" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol TagCode="2080SP600Y06" IsSelectable="True" FileName="AcesysV8.ValveOnOff" Build="4" Width="25" Height="25" IsEnabled="True" Canvas.Left="1037.5" Canvas.Top="745" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsBooleanValue Value="True" Key="EnTagInfo" />
+          <FlsBase:FlsBooleanValue Value="False" Key="Inverted" />
+          <FlsBase:FlsBooleanValue Value="True" Key="SetMimicBackground" />
+          <FlsBase:FlsDoubleValue Value="0" Key="Direction" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol TagCode="2080SP600Y05" IsSelectable="True" FileName="AcesysV8.ValveOnOff" Build="4" Width="25" Height="25" IsEnabled="True" Canvas.Left="980" Canvas.Top="720" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsBooleanValue Value="True" Key="EnTagInfo" />
+          <FlsBase:FlsBooleanValue Value="False" Key="Inverted" />
+          <FlsBase:FlsBooleanValue Value="True" Key="SetMimicBackground" />
+          <FlsBase:FlsDoubleValue Value="90" Key="Direction" DropDownNumber="1" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol TagCode="2080SP601Y05" IsSelectable="True" FileName="AcesysV8.ValveOnOff" Build="4" Width="25" Height="25" IsEnabled="True" Canvas.Left="982.5" Canvas.Top="557.5" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsBooleanValue Value="True" Key="EnTagInfo" />
+          <FlsBase:FlsBooleanValue Value="False" Key="Inverted" />
+          <FlsBase:FlsBooleanValue Value="True" Key="SetMimicBackground" />
+          <FlsBase:FlsDoubleValue Value="90" Key="Direction" DropDownNumber="1" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol TagCode="2080SP601Y06" IsSelectable="True" FileName="AcesysV8.ValveOnOff" Build="4" Width="25" Height="25" IsEnabled="True" Canvas.Left="1047.5" Canvas.Top="577.5" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsBooleanValue Value="True" Key="EnTagInfo" />
+          <FlsBase:FlsBooleanValue Value="False" Key="Inverted" />
+          <FlsBase:FlsBooleanValue Value="True" Key="SetMimicBackground" />
+          <FlsBase:FlsDoubleValue Value="0" Key="Direction" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol TagCode="2080SP601Y09" IsSelectable="True" FileName="AcesysV8.ValveOnOff" Build="4" Width="25" Height="25" IsEnabled="True" Canvas.Left="1250" Canvas.Top="595" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsBooleanValue Value="True" Key="EnTagInfo" />
+          <FlsBase:FlsBooleanValue Value="False" Key="Inverted" />
+          <FlsBase:FlsBooleanValue Value="True" Key="SetMimicBackground" />
+          <FlsBase:FlsDoubleValue Value="0" Key="Direction" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol TagCode="2080SP600Y09" IsSelectable="True" FileName="AcesysV8.ValveOnOff" Build="4" Width="25" Height="25" IsEnabled="True" Canvas.Left="1250" Canvas.Top="675" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsBooleanValue Value="True" Key="EnTagInfo" />
+          <FlsBase:FlsBooleanValue Value="False" Key="Inverted" />
+          <FlsBase:FlsBooleanValue Value="True" Key="SetMimicBackground" />
+          <FlsBase:FlsDoubleValue Value="0" Key="Direction" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol TagCode="2080TN590Y08" IsSelectable="True" FileName="AcesysV8.ValveOnOff" Build="4" Width="25" Height="25" IsEnabled="True" Canvas.Left="1467.5" Canvas.Top="455" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsBooleanValue Value="True" Key="EnTagInfo" />
+          <FlsBase:FlsBooleanValue Value="False" Key="Inverted" />
+          <FlsBase:FlsBooleanValue Value="True" Key="SetMimicBackground" />
+          <FlsBase:FlsDoubleValue Value="0" Key="Direction" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol TagCode="2080TN590Y09" IsSelectable="True" FileName="AcesysV8.ValveOnOff" Build="4" Width="25" Height="25" IsEnabled="True" Canvas.Left="1497.5" Canvas.Top="635" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsBooleanValue Value="True" Key="EnTagInfo" />
+          <FlsBase:FlsBooleanValue Value="False" Key="Inverted" />
+          <FlsBase:FlsBooleanValue Value="True" Key="SetMimicBackground" />
+          <FlsBase:FlsDoubleValue Value="90" Key="Direction" DropDownNumber="1" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol BitNumberIn="0" TagCode="2080SM441A01C62" IsSelectable="True" FileName="AcesysV8.IndicationSquare" Build="2" Width="10" Height="10" IsEnabled="True" Canvas.Left="1480" Canvas.Top="725" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsBooleanValue Value="True" Key="UseTagColor" />
+          <FlsBase:FlsObjectValue Key="Color_False">
+            <FlsBase:FlsObjectValue.Value>
+              <SolidColorBrush>#FF808080</SolidColorBrush>
+            </FlsBase:FlsObjectValue.Value>
+          </FlsBase:FlsObjectValue>
+          <FlsBase:FlsObjectValue Key="Color_True">
+            <FlsBase:FlsObjectValue.Value>
+              <SolidColorBrush>#FF008000</SolidColorBrush>
+            </FlsBase:FlsObjectValue.Value>
+          </FlsBase:FlsObjectValue>
+          <FlsBase:FlsBooleanValue Value="False" Key="ShowValue" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol BitNumberIn="0" TagCode="2080SM441A01X41" IsSelectable="True" FileName="AcesysV8.IndicationSquare" Build="2" Width="10" Height="10" IsEnabled="True" Canvas.Left="1495" Canvas.Top="725" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsBooleanValue Value="True" Key="UseTagColor" />
+          <FlsBase:FlsObjectValue Key="Color_False">
+            <FlsBase:FlsObjectValue.Value>
+              <SolidColorBrush>#FF808080</SolidColorBrush>
+            </FlsBase:FlsObjectValue.Value>
+          </FlsBase:FlsObjectValue>
+          <FlsBase:FlsObjectValue Key="Color_True">
+            <FlsBase:FlsObjectValue.Value>
+              <SolidColorBrush>#FF008000</SolidColorBrush>
+            </FlsBase:FlsObjectValue.Value>
+          </FlsBase:FlsObjectValue>
+          <FlsBase:FlsBooleanValue Value="False" Key="ShowValue" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol BitNumberIn="0" TagCode="2080SM441A01X42" IsSelectable="True" FileName="AcesysV8.IndicationSquare" Build="2" Width="10" Height="10" IsEnabled="True" Canvas.Left="1510" Canvas.Top="725" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsBooleanValue Value="True" Key="UseTagColor" />
+          <FlsBase:FlsObjectValue Key="Color_False">
+            <FlsBase:FlsObjectValue.Value>
+              <SolidColorBrush>#FF808080</SolidColorBrush>
+            </FlsBase:FlsObjectValue.Value>
+          </FlsBase:FlsObjectValue>
+          <FlsBase:FlsObjectValue Key="Color_True">
+            <FlsBase:FlsObjectValue.Value>
+              <SolidColorBrush>#FF008000</SolidColorBrush>
+            </FlsBase:FlsObjectValue.Value>
+          </FlsBase:FlsObjectValue>
+          <FlsBase:FlsBooleanValue Value="False" Key="ShowValue" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol BitNumberIn="0" TagCode="2080SM510A01C62" IsSelectable="True" FileName="AcesysV8.IndicationSquare" Build="2" Width="10" Height="10" IsEnabled="True" Canvas.Left="125" Canvas.Top="140" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsBooleanValue Value="True" Key="UseTagColor" />
+          <FlsBase:FlsObjectValue Key="Color_False">
+            <FlsBase:FlsObjectValue.Value>
+              <SolidColorBrush>#FF808080</SolidColorBrush>
+            </FlsBase:FlsObjectValue.Value>
+          </FlsBase:FlsObjectValue>
+          <FlsBase:FlsObjectValue Key="Color_True">
+            <FlsBase:FlsObjectValue.Value>
+              <SolidColorBrush>#FF008000</SolidColorBrush>
+            </FlsBase:FlsObjectValue.Value>
+          </FlsBase:FlsObjectValue>
+          <FlsBase:FlsBooleanValue Value="False" Key="ShowValue" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol BitNumberIn="0" TagCode="2080SM510A01X41" IsSelectable="True" FileName="AcesysV8.IndicationSquare" Build="2" Width="10" Height="10" IsEnabled="True" Canvas.Left="140" Canvas.Top="140" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsBooleanValue Value="True" Key="UseTagColor" />
+          <FlsBase:FlsObjectValue Key="Color_False">
+            <FlsBase:FlsObjectValue.Value>
+              <SolidColorBrush>#FF808080</SolidColorBrush>
+            </FlsBase:FlsObjectValue.Value>
+          </FlsBase:FlsObjectValue>
+          <FlsBase:FlsObjectValue Key="Color_True">
+            <FlsBase:FlsObjectValue.Value>
+              <SolidColorBrush>#FF008000</SolidColorBrush>
+            </FlsBase:FlsObjectValue.Value>
+          </FlsBase:FlsObjectValue>
+          <FlsBase:FlsBooleanValue Value="False" Key="ShowValue" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol BitNumberIn="0" TagCode="2080SM510A01X42" IsSelectable="True" FileName="AcesysV8.IndicationSquare" Build="2" Width="10" Height="10" IsEnabled="True" Canvas.Left="155" Canvas.Top="140" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsBooleanValue Value="True" Key="UseTagColor" />
+          <FlsBase:FlsObjectValue Key="Color_False">
+            <FlsBase:FlsObjectValue.Value>
+              <SolidColorBrush>#FF808080</SolidColorBrush>
+            </FlsBase:FlsObjectValue.Value>
+          </FlsBase:FlsObjectValue>
+          <FlsBase:FlsObjectValue Key="Color_True">
+            <FlsBase:FlsObjectValue.Value>
+              <SolidColorBrush>#FF008000</SolidColorBrush>
+            </FlsBase:FlsObjectValue.Value>
+          </FlsBase:FlsObjectValue>
+          <FlsBase:FlsBooleanValue Value="False" Key="ShowValue" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:DynamicSymbol TagCode="2080SJ961M01I01" IsSelectable="True" FileName="AcesysV8.SimpleAnalogDisplay" Build="3" Width="120" Height="Auto" IsEnabled="True" Canvas.Left="540" Canvas.Top="645" ToolTipType="AcesysV8.StandardToolTipWithValue">
+      <FlsBase:DynamicSymbol.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsBinaryValue Value="40" Key="UnitSize" DropDownNumber="2" />
+          <FlsBase:FlsDoubleValue Value="18" Key="FontSize" />
+        </FlsBase:FlsCollection>
+      </FlsBase:DynamicSymbol.Variables>
+    </FlsBase:DynamicSymbol>
+    <FlsBase:MimicPart FileName="AcesysV8.PanelBar" Build="3" Width="Auto" Height="500" IsEnabled="True" Canvas.Left="1330" Canvas.Top="40">
+      <FlsBase:MimicPart.Variables>
+        <FlsBase:FlsCollection>
+          <FlsBase:FlsBooleanValue Value="True" Key="RefEnStatusTxt" />
+          <FlsBase:FlsBooleanValue Value="True" Key="SetMimicBackground" />
+          <FlsBase:FlsCollectionValue Key="MyRepeat">
+            <FlsBase:FlsCollectionValue.Value><FlsBase:FlsCollection>
+              <FlsBase:FlsCollectionValue Key="MyRepeat_1">
+                <FlsBase:FlsCollectionValue.Value><FlsBase:FlsCollection>
+                  <FlsBase:FlsTextValue Value="AcesysV8.PanelGroup" Key="ObjectType" DropDownNumber="2" />
+                  <FlsBase:FlsTagValue TagCode="994CD100G02" Key="TagRef" />
+                </FlsBase:FlsCollection></FlsBase:FlsCollectionValue.Value>
+              </FlsBase:FlsCollectionValue>
+              <FlsBase:FlsCollectionValue Key="MyRepeat_2">
+                <FlsBase:FlsCollectionValue.Value><FlsBase:FlsCollection>
+                  <FlsBase:FlsTagValue TagCode="994CD100G04" Key="TagRef" />
+                  <FlsBase:FlsTextValue Value="AcesysV8.PanelGroup" Key="ObjectType" DropDownNumber="2" />
+                </FlsBase:FlsCollection></FlsBase:FlsCollectionValue.Value>
+              </FlsBase:FlsCollectionValue>
+              <FlsBase:FlsCollectionValue Key="MyRepeat_3">
+                <FlsBase:FlsCollectionValue.Value><FlsBase:FlsCollection>
+                  <FlsBase:FlsTextValue Value="AcesysV8.PanelGroup" Key="ObjectType" DropDownNumber="2" />
+                  <FlsBase:FlsTagValue TagCode="994CD100G06" Key="TagRef" />
+                </FlsBase:FlsCollection></FlsBase:FlsCollectionValue.Value>
+              </FlsBase:FlsCollectionValue>
+              <FlsBase:FlsCollectionValue Key="MyRepeat_4">
+                <FlsBase:FlsCollectionValue.Value><FlsBase:FlsCollection>
+                  <FlsBase:FlsTextValue Value="AcesysV8.PanelGroup" Key="ObjectType" DropDownNumber="2" />
+                  <FlsBase:FlsTagValue TagCode="994CD100G08" Key="TagRef" />
+                </FlsBase:FlsCollection></FlsBase:FlsCollectionValue.Value>
+              </FlsBase:FlsCollectionValue>
+            </FlsBase:FlsCollection></FlsBase:FlsCollectionValue.Value>
+          </FlsBase:FlsCollectionValue>
+        </FlsBase:FlsCollection>
+      </FlsBase:MimicPart.Variables>
+    </FlsBase:MimicPart>
+    <Button Padding="10,0,10,0" Width="107.5" Height="22.0779220779221" Margin="0,0,0,0" IsEnabled="True" Canvas.Left="10" Canvas.Top="430" Command="{Binding BaseCommand}">
+      <TextBlock Text="Process water" FontSize="14" IsEnabled="True" />
+      <Button.CommandParameter>
+        <FlsBase:TextArgument FlsCommand="ChangeMimic" Value="996_mimic_02" />
+      </Button.CommandParameter>
+    </Button>
+    <TextBlock Text="Drainage" FontSize="13.5" Foreground="{Binding Parent, Converter={FlsBase:WhiteBackgroundColorConverter #FFEBEBC7, true}}" TextAlignment="Right" Width="Auto" IsEnabled="True" Canvas.Left="50" Canvas.Top="465" />
+    <TextBlock Text="TN-591" FontSize="13.5" Foreground="{Binding Parent, Converter={FlsBase:WhiteBackgroundColorConverter #FFEBEBC7, true}}" TextAlignment="Right" Width="Auto" IsEnabled="True" Canvas.Left="795" Canvas.Top="110" />
+    <Rectangle StrokeThickness="1" StrokeDashArray="3 1" Width="680" Height="780" IsEnabled="True" Canvas.Left="665" Canvas.Top="50" Stroke="{Binding Parent, Converter={FlsBase:RetrieveGlobalColorBrush _Linebrush}}" />
+  </Canvas>
+</DataTemplate>

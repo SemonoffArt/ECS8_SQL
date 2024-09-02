@@ -1,0 +1,832 @@
+﻿<DataTemplate	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+				xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                xmlns:FlsBase="clr-namespace:Fls.Core.Hmi.UI.PA;assembly=Fls.Core.Hmi.UI"
+                xmlns:EccFace="clr-namespace:Fls.Ecc.Pnt.UI.Faceplate.PA;assembly=Fls.Ecc.Pnt.UI.Faceplate">
+    <!--_____________________________________________________________________________________________________________________________
+
+	Build 001 - 01 Dec 2014 - First Release
+	Build 002 - 22 Dec 2015 - Support of Simple AI in Related Tab  - SR1
+	Build 003 - 31 Oct 2016 - Diag Tab added to diaplay Iusys data
+	Build 004 - 25 Nov 2016 - Local Stop Lamp 0 state color changed to Red & Faceplate width increased to 550
+	Build 005 - 01 Dec 2016 - Related Indication template added newly and changed in related point for indication
+	Build 006 - 01 Feb 2017 - Power Monitor Groupbox in Related tab added
+	Build 007 - 15 Mar 2017 - Faceplate Height increased from 400 to 500 to accomodate all configed tabs
+	Build 008 - 17 Aug 2017 - SIM_MD_Pulses check box added in Device Simulation tab.
+	Build 009 - 20 Feb 2018 - Schneider Routine name changed
+    Build 010 - 01 Oct 2018 - Horizontal Scroll bar added
+    Build 011 - 18 Dec 2018 - Interlock Horizontal and Vertical scroll bar corrected
+    Build 012 - 19 Sep 2019 - Faceplate width applied from External sitespecific style file
+    Build 013 - 14 Nov 2019 - Sim tab code optimized & Items control replaced with content control in config tab - Performance Improvement
+    
+	
+
+_____________________________________________________________________________________________________________________________-->
+    <Grid Width="{Binding Value, Source={FlsBase:Retrieve V8FP_LargeWidth, AcesysV8.SiteSpecific},FallbackValue=600}" 
+          Resources="{FlsBase:RetrieveStyleFile AcesysV8.Styles}" FlsBase:ExtendOwner.ExtendObject="{x:Type EccFace:FaceplateViewModel}">
+        <Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+            <Grid.Resources>
+                <EccFace:DataContainer  x:Key="MasterData" FunctionBlockType="Related Signals" LoadPointConfig="True"  LoadBlockparameters="true" LoadStatistics="True"/>
+                <EccFace:ChildContainer x:Key="InterlockDataVis" FunctionBlockType="Interlock" />
+                <EccFace:ChildContainer x:Key="RelatedSignalsVis" FunctionBlockType="Related Signals"/>
+                <EccFace:ChildContainer x:Key="RelatedSimAnalog"      ReferencePoint="PointEntity" FunctionBlockType="Related Signals" FunctionBlockSubtype="Simple Analog Measurement"/>
+                <EccFace:ChildContainer x:Key="RelatedAnalog"      ReferencePoint="PointEntity" FunctionBlockType="Related Signals" FunctionBlockSubtype="Analog Measurement"/>
+                <EccFace:ChildContainer x:Key="RelatedDigital"     ReferencePoint="PointEntity" FunctionBlockType="Related Signals" FunctionBlockSubtype="Digital Alarm"/>
+                <EccFace:ChildContainer x:Key="RelatedSelect"     ReferencePoint="PointEntity" FunctionBlockType="Related Signals" FunctionBlockSubtype="Select"/>
+                <EccFace:ChildContainer x:Key="RelatedIndi"     ReferencePoint="PointEntity" FunctionBlockType="Related Signals" FunctionBlockSubtype="Indication"/>
+                <EccFace:ChildContainer x:Key="RelatedPowerMonitor"     ReferencePoint="PointEntity" FunctionBlockType="Related Signals" FunctionBlockSubtype="Power Monitor"/>
+            </Grid.Resources>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Rectangle Stroke="Yellow" StrokeThickness="3" Grid.RowSpan="3" Visibility="{Binding Block[SIM_ACTIVE].Value, Source={StaticResource MasterData}, Converter={FlsBase:ObjectToVisibility True, Collapsed} ,FallbackValue=Collapsed}"/>
+            <FlsBase:DynamicSymbol FileName="AcesysV8.FP_Header_Info" TagCode="{Binding Owner.TagCode, Source={StaticResource MasterData}}" Area="{Binding Owner.Area, Source={StaticResource MasterData}}"/>
+            <TabControl Margin="3" Grid.Row="1" Height="500" Name="TabCtrl" TabStripPlacement="Right" Grid.IsSharedSizeScope="True" >
+                <TabItem Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Tab.Control}">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" Template="{DynamicResource ScrollViewerControl}">
+                        <Grid >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="{Binding Block[Type_Unimotor].Value, Source={StaticResource MasterData}, Converter={FlsBase:ObjectToBoolean true, {x:Static sys:Double.NaN}, 0, false}, FallbackValue=auto}"/>
+                                <RowDefinition Height="{Binding Block[Type_Bimotor].Value, Source={StaticResource MasterData}, Converter={FlsBase:ObjectToBoolean true, {x:Static sys:Double.NaN}, 0, false}, FallbackValue=0}"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto" Name="AnalogValues"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <GroupBox Name="CmdUnimotor" Grid.Row="1" Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Grp.StartStop}">
+
+                                <EccFace:EccItemsControl 	EccPanel="3:2"
+														BlockParameters="{Binding Block, Source={StaticResource MasterData}}" 
+														FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_ButtonBlkItem" 
+														ItemsSpecification="FP_CMD_Start1#PicText#Start1#DimOut_Start1#Show_PB_Start1;
+																			Empty;
+																			FP_CMD_Stop#PicText#Stop#DimOut_Stop#Show_PB_Stop;
+																			Empty;
+																			FP_CMD_QStop#PicText#Quick_Stop#DimOut_Qstop#Show_PB_QStop"/>
+                            </GroupBox>
+                            <GroupBox Name="CmdUnimotorInching" Visibility="Collapsed" Grid.Row="1" Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Grp.StartStop}">
+
+                                <EccFace:EccItemsControl 	EccPanel="3:2"
+														BlockParameters="{Binding Block, Source={StaticResource MasterData}}" 
+														FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_ButtonBlkItem" 
+														ItemsSpecification="FP_CMD_Start1#PicTextInching#Start1#DimOut_Start1#Show_PB_Start1;
+								                                            Empty;
+								                                            FP_CMD_Stop#PicText#nextstep#DimOut_Stop#Show_PB_Stop;
+								                                            Empty;
+								                                            FP_CMD_QStop#PicText#Quick_Stop#DimOut_Qstop#Show_PB_QStop" />
+                            </GroupBox>
+                            <GroupBox Name="CmdBimotor" Grid.Row="2"  Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Grp.StartStop}" >
+                                <EccFace:EccItemsControl 	EccPanel="3:2"
+														BlockParameters="{Binding Block, Source={StaticResource MasterData}}" 
+														FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_ButtonBlkItem" 
+														ItemsSpecification="FP_CMD_Start1#PicText#Start1#DimOut_Start1#Show_PB_Start1;
+                                                                            #Empty;																			
+																			FP_CMD_Start2#PicText#Start2#DimOut_Start2#Show_PB_Start2;
+                                                                            #Empty;
+                                                                            FP_CMD_Stop#PicText#Stop#DimOut_Stop#Show_PB_Stop;
+                                                                            FP_CMD_QStop#PicText#Quick_Stop#DimOut_Qstop#Show_PB_QStop"/>
+                            </GroupBox>
+                            <GroupBox Name="CmdBimotorInching" Visibility="Collapsed" Grid.Row="2"  Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Grp.StartStop}" >
+                                <EccFace:EccItemsControl 	EccPanel="3:2"
+														BlockParameters="{Binding Block, Source={StaticResource MasterData}}" 
+														FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_ButtonBlkItem" 
+														ItemsSpecification="FP_CMD_Start1#PicTextInching#Start1#DimOut_Start1#Show_PB_Start1;
+                                                                            #Empty;																			
+									                                        FP_CMD_Start2#PicTextInching#Start2#DimOut_Start2#Show_PB_Start2;
+                                                                            #Empty;
+                                                                            FP_CMD_Stop#PicText#Stop#DimOut_Stop#Show_PB_Stop;
+                                                                            FP_CMD_QStop#PicText#Quick_Stop#DimOut_Qstop#Show_PB_QStop"/>
+                            </GroupBox>
+                            <GroupBox Grid.Row="3" Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Grp.Mode}">
+                                <EccFace:EccItemsControl	EccPanel="4:1"
+														BlockParameters="{Binding Block, Source={StaticResource MasterData}}" 
+														FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_ButtonBlkItem"
+														ItemsSpecification="FP_CMD_Auto#Text##DimOut_Auto#Show_PB_Auto;
+																			FP_CMD_Local#Text##DimOut_Local#Show_PB_Local;
+																			FP_CMD_Manual#Text##DimOut_Manual#Show_PB_Manual;
+																			FP_CMD_Test#Text##DimOut_Test#Show_PB_Test"/>
+                            </GroupBox>
+                            <GroupBox Grid.Row="4" Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Grp.AnalMes}">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="{Binding Block[SHOW_AI1].Value, Converter={FlsBase:ObjectToBoolean true, {x:Static sys:Double.NaN}, 0, false}, Source={StaticResource MasterData}, FallbackValue=auto}"/>
+                                        <RowDefinition Height="{Binding Block[SHOW_AI2].Value, Converter={FlsBase:ObjectToBoolean true, {x:Static sys:Double.NaN}, 0, false}, Source={StaticResource MasterData}, FallbackValue=auto}"/>
+                                        <RowDefinition Height="{Binding Block[SHOW_AI3].Value, Converter={FlsBase:ObjectToBoolean true, {x:Static sys:Double.NaN}, 0, false}, Source={StaticResource MasterData}, FallbackValue=auto}"/>
+                                        <RowDefinition Height="{Binding Block[SHOW_SP].Value, Converter={FlsBase:ObjectToBoolean true, {x:Static sys:Double.NaN}, 0, false}, Source={StaticResource MasterData}, FallbackValue=auto}"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <EccFace:EccContentControl  FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_BlkValDesc"
+															BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+															CommonData="Language#Show_"
+															ItemSpecification="AO1a"/>
+                                    <EccFace:EccContentControl	Grid.Row="1" FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_BlkValDesc"
+															BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+															CommonData="Language#Show_"
+															ItemSpecification="AO2a"/>
+                                    <EccFace:EccContentControl	Grid.Row="2" FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_BlkValDesc"
+															BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+															CommonData="Language#Show_"
+															ItemSpecification="AO3a"/>
+                                    <EccFace:EccContentControl	Grid.Row="3" FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_BlkValDesc"
+															BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+															CommonData="Language#Show_"
+															ItemSpecification="CV"/>
+
+                                    <EccFace:EccContentControl  Grid.Column="1"	FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_BlkVal"
+															BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+															ItemSpecification="AO1b"/>
+                                    <EccFace:EccContentControl  Grid.Row="1" Grid.Column="1"	FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_BlkVal"
+															BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+															ItemSpecification="AO2b"/>
+                                    <EccFace:EccContentControl  Grid.Row="2" Grid.Column="1"	FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_BlkVal"
+															BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+															ItemSpecification="AO3b"/>
+
+
+                                </Grid>
+                            </GroupBox>
+                        </Grid>
+                    </ScrollViewer>
+                </TabItem>
+                <TabItem Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Tab.Interlock}" Visibility="{Binding FunctionBlock.HasPoints, Source={StaticResource InterlockDataVis}, Converter={FlsBase:ObjectToVisibility True, Visible, Collapsed}, FallbackValue=Collapse}">
+                    <Grid>
+                        <Grid.Resources>
+                            <EccFace:ChildContainer x:Key="InterlockData"      FunctionBlockType="Interlock" FunctionBlockSubtype="INTL"/>
+                            <EccFace:ChildContainer x:Key="InterlockDataSTR"   ReferencePoint="PointEntity" FunctionBlockType="Interlock" FunctionBlockSubtype="INTL_SEQ_STR"/>
+                            <EccFace:ChildContainer x:Key="InterlockDataSTR1"  ReferencePoint="PointEntity" FunctionBlockType="Interlock" FunctionBlockSubtype="INTL_SEQ_STR1"/>
+                            <EccFace:ChildContainer x:Key="InterlockDataSTR2"  ReferencePoint="PointEntity" FunctionBlockType="Interlock" FunctionBlockSubtype="INTL_SEQ_STR2"/>
+                            <EccFace:ChildContainer x:Key="InterlockDataSTP"   ReferencePoint="PointEntity" FunctionBlockType="Interlock" FunctionBlockSubtype="INTL_SEQ_STP"/>
+                        </Grid.Resources>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Template="{DynamicResource ScrollViewerControl}">
+
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="{Binding Block[Type_Unimotor].Value, Source={StaticResource MasterData}, Converter={FlsBase:ObjectToBoolean true, {x:Static sys:Double.NaN}, 0, false}, FallbackValue=auto}"/>
+                                    <RowDefinition Height="{Binding Block[Type_Bimotor].Value, Source={StaticResource MasterData}, Converter={FlsBase:ObjectToBoolean true, {x:Static sys:Double.NaN}, 0, false}, FallbackValue=auto}"/>
+                                    <RowDefinition Height="{Binding Block[Type_Bimotor].Value, Source={StaticResource MasterData}, Converter={FlsBase:ObjectToBoolean true, {x:Static sys:Double.NaN}, 0, false}, FallbackValue=auto}"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <!--Visibility="{Binding Block[Type_Bimotor].Value, Source={StaticResource MasterData}, Converter={FlsBase:ObjectToVisibility True, Collapsed}}"-->
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <EccFace:EccContentControl	FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_LampBasic" Visibility="{Binding FunctionBlock.HasPoints, Source={StaticResource InterlockData}, Converter={FlsBase:ObjectToVisibility True, Visible, Collapsed}, FallbackValue=Collapse}"
+														BlockParameters="{Binding Block, Source={StaticResource MasterData}}" 
+														ItemSpecification="INTL#Acesys.On#Acesys.Alarm"/>
+
+                                <GroupBox Grid.Column="1"	Header="{Binding Block[INTL].CombinedDescription, Source={StaticResource MasterData}, FallbackValue=Interlock}" 
+														Visibility="{Binding FunctionBlock.HasPoints, Source={StaticResource InterlockData}, Converter={FlsBase:ObjectToVisibility True, Visible, Collapsed}, FallbackValue=Collapse}">
+                                    <ItemsControl ItemsSource="{Binding FunctionBlock.TheList, Source={StaticResource InterlockData}}" FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_InterlockLine" />
+                                </GroupBox>
+                                <EccFace:EccContentControl	Grid.Row="1" Visibility="{Binding FunctionBlock.HasPoints, Source={StaticResource InterlockDataSTR}, Converter={FlsBase:ObjectToVisibility True, Visible, Collapsed}, FallbackValue=Collapse}"
+														FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_LampBasic"
+														BlockParameters="{Binding Block, Source={StaticResource MasterData}}" 
+														ItemSpecification="INTL_SEQ_STR1#Acesys.On#Acesys.Alarm"/>
+                                <GroupBox	Header="{Binding Block[INTL_SEQ_STR1].CombinedDescription, Source={StaticResource MasterData}, FallbackValue=StrIntl}" Grid.Column="1" Grid.Row="1"
+										Visibility="{Binding FunctionBlock.HasPoints, Source={StaticResource InterlockDataSTR}, Converter={FlsBase:ObjectToVisibility True, Visible, Collapsed}, FallbackValue=Collapse}">
+                                    <ItemsControl ItemsSource="{Binding FunctionBlock.TheList, Source={StaticResource InterlockDataSTR}}" FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_InterlockLine" />
+                                </GroupBox>
+                                <EccFace:EccContentControl	Grid.Row="2" Visibility="{Binding FunctionBlock.HasPoints, Source={StaticResource InterlockDataSTR1}, Converter={FlsBase:ObjectToVisibility True, Visible, Collapsed}, FallbackValue=Collapse}"
+														FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_LampBasic"
+														BlockParameters="{Binding Block, Source={StaticResource MasterData}}" 
+														ItemSpecification="INTL_SEQ_STR1#Acesys.On#Acesys.Alarm"/>
+                                <GroupBox Header="{Binding Block[INTL_SEQ_STR1].CombinedDescription, Source={StaticResource MasterData}, FallbackValue=Str1Intl}" Grid.Column="1" Grid.Row="2"
+										Visibility="{Binding FunctionBlock.HasPoints, Source={StaticResource InterlockDataSTR1}, Converter={FlsBase:ObjectToVisibility True, Visible, Collapsed}, FallbackValue=Collapse}">
+                                    <ItemsControl ItemsSource="{Binding FunctionBlock.TheList, Source={StaticResource InterlockDataSTR1}}" FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_InterlockLine" />
+                                </GroupBox>
+                                <EccFace:EccContentControl	Grid.Row="3" Visibility="{Binding FunctionBlock.HasPoints, Source={StaticResource InterlockDataSTR2}, Converter={FlsBase:ObjectToVisibility True, Visible, Collapsed}, FallbackValue=Collapse}"
+														FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_LampBasic"
+														BlockParameters="{Binding Block, Source={StaticResource MasterData}}" 
+														ItemSpecification="INTL_SEQ_STR2#Acesys.On#Acesys.Alarm"/>
+                                <GroupBox Header="{Binding Block[INTL_SEQ_STR2].CombinedDescription, Source={StaticResource MasterData}, FallbackValue=Str2Intl}" Grid.Column="1" Grid.Row="3"
+										Visibility="{Binding FunctionBlock.HasPoints, Source={StaticResource InterlockDataSTR2}, Converter={FlsBase:ObjectToVisibility True, Visible, Collapsed}, FallbackValue=Collapse}">
+                                    <ItemsControl ItemsSource="{Binding FunctionBlock.TheList, Source={StaticResource InterlockDataSTR2}}" FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_InterlockLine" />
+                                </GroupBox>
+                                <EccFace:EccContentControl	Grid.Row="4" Visibility="{Binding FunctionBlock.HasPoints, Source={StaticResource InterlockDataSTP}, Converter={FlsBase:ObjectToVisibility True, Visible, Collapsed}, FallbackValue=Collapse}"
+														FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_LampBasic"
+														BlockParameters="{Binding Block, Source={StaticResource MasterData}}" 
+														ItemSpecification="INTL_SEQ_STP#Acesys.On#Acesys.Alarm"/>
+                                <GroupBox Header="{Binding Block[INTL_SEQ_STP].CombinedDescription, Source={StaticResource MasterData}, FallbackValue=StpIntl}" Grid.Column="1" Grid.Row="4"
+										Visibility="{Binding FunctionBlock.HasPoints, Source={StaticResource InterlockDataSTP}, Converter={FlsBase:ObjectToVisibility True, Visible, Collapsed}, FallbackValue=Collapse}">
+                                    <ItemsControl ItemsSource="{Binding FunctionBlock.TheList, Source={StaticResource InterlockDataSTP}}" FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_InterlockLine" />
+                                </GroupBox>
+
+                            </Grid>
+                        </ScrollViewer>
+
+                        <Grid Grid.Row="1">
+                            <GroupBox Grid.ColumnSpan="2" Grid.Row="5" Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Grp.StpRes}">
+                                <TextBlock TextAlignment="Center" Text="{Binding Block[StopReason].TextValue, Source={StaticResource MasterData}, FallbackValue=NoKey}" />
+                            </GroupBox>
+                        </Grid>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Tab.RelSig}" Visibility="{Binding FunctionBlock.HasPoints, Source={StaticResource RelatedSignalsVis}, Converter={FlsBase:ObjectToVisibility True, Visible, Collapsed}, FallbackValue=Collapse}">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" Template="{DynamicResource ScrollViewerControl}">
+                        <Grid>
+                            <Grid.Resources>
+
+                            </Grid.Resources>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <GroupBox Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Grp.RelPowerMon}" Grid.Row="0" Visibility="{Binding FunctionBlock.HasPoints, Source={StaticResource RelatedPowerMonitor}, Converter={FlsBase:ObjectToVisibility True, Visible, Collapsed}, FallbackValue=Collapse}">
+                                <ItemsControl ItemsSource="{Binding FunctionBlock.TheList, Source={StaticResource RelatedPowerMonitor}}" FlsBase:Info.DynamicSymbolTemplate="AcesysV8.FP_RelatedValues" />
+                            </GroupBox>
+                            <GroupBox Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Grp.RelSigSA}" Grid.Row="1" Visibility="{Binding FunctionBlock.HasPoints, Source={StaticResource RelatedSimAnalog}, Converter={FlsBase:ObjectToVisibility True, Visible, Collapsed}, FallbackValue=Collapse}">
+                                <ItemsControl ItemsSource="{Binding FunctionBlock.TheList, Source={StaticResource RelatedSimAnalog}}" FlsBase:Info.DynamicSymbolTemplate="AcesysV8.FP_RelatedValuesNoStatus" />
+                            </GroupBox>
+                            <GroupBox Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Grp.RelSigA}" Grid.Row="2" Visibility="{Binding FunctionBlock.HasPoints, Source={StaticResource RelatedAnalog}, Converter={FlsBase:ObjectToVisibility True, Visible, Collapsed}, FallbackValue=Collapse}">
+                                <ItemsControl ItemsSource="{Binding FunctionBlock.TheList, Source={StaticResource RelatedAnalog}}" FlsBase:Info.DynamicSymbolTemplate="AcesysV8.FP_RelatedValues" />
+                            </GroupBox>
+                            <GroupBox Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Grp.RelSigB}" Grid.Row="3" Visibility="{Binding FunctionBlock.HasPoints, Source={StaticResource RelatedDigital}, Converter={FlsBase:ObjectToVisibility True, Visible, Collapsed}, FallbackValue=Collapse}">
+                                <ItemsControl ItemsSource="{Binding FunctionBlock.TheList, Source={StaticResource RelatedDigital}}" FlsBase:Info.DynamicSymbolTemplate="AcesysV8.FP_RelatedValues" />
+                            </GroupBox>
+                            <GroupBox Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Grp.RelSigSel}" Grid.Row="4" Visibility="{Binding FunctionBlock.HasPoints, Source={StaticResource RelatedSelect}, Converter={FlsBase:ObjectToVisibility True, Visible, Collapsed}, FallbackValue=Collapse}">
+                                <ItemsControl ItemsSource="{Binding FunctionBlock.TheList, Source={StaticResource RelatedSelect}}" FlsBase:Info.DynamicSymbolTemplate="AcesysV8.FP_RelatedSelections" />
+                            </GroupBox>
+                            <GroupBox Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Grp.RelSigInd}" Grid.Row="5" Visibility="{Binding FunctionBlock.HasPoints, Source={StaticResource RelatedIndi}, Converter={FlsBase:ObjectToVisibility True, Visible, Collapsed}, FallbackValue=Collapse}">
+                                <ItemsControl ItemsSource="{Binding FunctionBlock.TheList, Source={StaticResource RelatedIndi}}" FlsBase:Info.DynamicSymbolTemplate="AcesysV8.FP_RelatedIndications" />
+                            </GroupBox>
+                        </Grid>
+                    </ScrollViewer>
+                </TabItem>
+                <TabItem Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Tab.Input}" >
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" Template="{DynamicResource ScrollViewerControl}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.5*" />
+                                <ColumnDefinition Width="0.5*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <GroupBox Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Grp.Input}">
+                                    <EccFace:EccItemsControl	FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_LampLine"
+																BlockParameters="{Binding Block, Source={StaticResource MasterData}}" 
+																CommonData="Show_#ACESYS_"
+																ItemsSpecification="RDY#RDY#Acesys.Ok#Acesys.Alarm;
+																					MCC#MCC#Acesys.Ok#Acesys.Alarm;
+																					OVL#OVL#Acesys.Ok#Acesys.Alarm;
+																					RET1#RET1#Acesys.On#Acesys.Stop;
+																					RET2#RET2#Acesys.On#Acesys.Stop;
+																					LSTR1#LSTR1#Acesys.On#Acesys.Off;
+																					LSTR2#LSTR2#Acesys.On#Acesys.Off;
+																					LSTP#LSTP#Acesys.On#Acesys.Alarm;
+																					REM#REM#Acesys.Ok#Acesys.Alarm;
+																					SSW#SSW#Acesys.Ok#Acesys.Alarm;
+																					MD#MD#Acesys.On#Acesys.Off;
+																					SFS#SFS#Acesys.On#Acesys.Off;
+																					SLS#SLS#Acesys.On#Acesys.Off;
+																					ES#ES#Acesys.Ok#Acesys.Alarm"/>
+                                </GroupBox>
+                                <GroupBox Grid.Row="1" Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Grp.Misc}">
+                                    <EccFace:EccItemsControl	FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_LampLine"
+																BlockParameters="{Binding Block, Source={StaticResource MasterData}}" 
+																CommonData="Show_#ACESYS_"
+																ItemsSpecification="SEL#SEL#Acesys.On#Acesys.Off;
+																					ASTR#ASTR#Acesys.On#Acesys.Off"/>
+                                </GroupBox>
+                            </Grid>
+                            <Grid Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" x:Name="Ext_Input"/>
+                                    <RowDefinition Height="{Binding Block[Show_ChangeDir].Value, Source={StaticResource MasterData}, Converter={FlsBase:ObjectToBoolean true, {x:Static sys:Double.NaN}, 0, false}, FallbackValue=auto}"/>
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <GroupBox  Visibility="Visible" Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Grp.ExIn}" >
+                                    <EccFace:EccItemsControl	FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_LampLine"
+																BlockParameters="{Binding Block, Source={StaticResource MasterData}}" 
+																CommonData="Show_#ACESYS_"
+																ItemsSpecification="TFA#TFA#Acesys.Ok#Acesys.Alarm;
+																					DRDY#DRDY#Acesys.Ok#Acesys.Alarm;
+																					STALL#STALL#Acesys.Ok#Acesys.Alarm;
+																					EARTH#EARTH#Acesys.Ok#Acesys.Alarm;
+																					UBAL#UBAL#Acesys.Ok#Acesys.Alarm;
+																					GFA#GFA#Acesys.Ok#Acesys.Alarm;
+																					GWA#GWA#Acesys.Ok#Acesys.Warn;
+																					BUSF#BUSF#Acesys.Ok#Acesys.Alarm;
+																					DOPR#DOPR#Acesys.Ok#Acesys.Alarm;
+																					DTEST#DTEST#Acesys.Alarm#Acesys.Ok;
+																					ACK#ACK#Acesys.On#Acesys.Off"/>
+                                </GroupBox>
+
+                                <GroupBox Grid.Row="1" Visibility="{Binding Block[DIR1].Value, Source={StaticResource MasterData}, Converter={FlsBase:ObjectToVisibility True, Collapsed}}" Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Grp.Indi}" >
+                                    <EccFace:EccItemsControl	FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_LampLine"
+																BlockParameters="{Binding Block, Source={StaticResource MasterData}}" 
+																CommonData="Show_#ACESYS_"
+																ItemsSpecification="DIR1#DIR#Acesys.On#Acesys.Off"/>
+                                </GroupBox>
+
+                                <GroupBox Grid.Row="1" Visibility="{Binding Block[DIR2].Value, Source={StaticResource MasterData}, Converter={FlsBase:ObjectToVisibility False, Collapsed}}" Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Grp.Indi}" >
+                                    <EccFace:EccItemsControl	FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_LampLine"
+																BlockParameters="{Binding Block, Source={StaticResource MasterData}}" 
+																CommonData="Show_#ACESYS_"
+																ItemsSpecification="DIR2#DIR#Acesys.On#Acesys.Off"/>
+                                </GroupBox>
+
+
+                            </Grid>
+                        </Grid>
+                    </ScrollViewer>
+                </TabItem>
+                <TabItem Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Tab.Output}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*" />
+                            <ColumnDefinition Width="0.5*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="{Binding Block[Show_PB_Reset].Value, Source={StaticResource MasterData}, Converter={FlsBase:ObjectToBoolean true, {x:Static sys:Double.NaN}, 0, false}, FallbackValue=auto}"/>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <GroupBox Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Grp.Output}">
+
+                            <EccFace:EccItemsControl	FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_LampLine"
+														BlockParameters="{Binding Block, Source={StaticResource MasterData}}" 
+														CommonData="Show_#ACESYS_"
+														ItemsSpecification="OK#OK#Acesys.Ok#Acesys.Alarm;
+																			SACK#SACK#Acesys.On#Acesys.Off;
+																			RD1#RD1#Acesys.On#Acesys.Stop;
+																			RD2#RD2#Acesys.On#Acesys.Stop;
+																			RUN1#RUN1#Acesys.On#Acesys.Stop;
+																			RUN2#RUN2#Acesys.On#Acesys.Stop;
+																			CON1#CON1#Acesys.On#Acesys.Stop;
+																			CON2#CON2#Acesys.On#Acesys.Stop"/>
+                        </GroupBox>
+                        <GroupBox Grid.Column="1" Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Grp.OutputMode}">
+                            <EccFace:EccItemsControl	FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_LampLine"
+														BlockParameters="{Binding Block, Source={StaticResource MasterData}}" 
+														CommonData="Show_#ACESYS_"
+														ItemsSpecification="LOC#LOC#Acesys.On#Acesys.Off;
+																			AUT#AUT#Acesys.On#Acesys.Off;
+																			MAN#MAN#Acesys.On#Acesys.Off;
+																			SS#SS#Acesys.On#Acesys.Off;
+																			TESTP#TESTP#Acesys.On#Acesys.Off;
+																			RES#RES#Acesys.On#Acesys.Off;
+																			ASTW#ASTW#Acesys.On#Acesys.Off"/>
+
+
+                        </GroupBox>
+                        <GroupBox Grid.Row="1" Grid.ColumnSpan="2" Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Grp.Reset}">
+                            <EccFace:EccItemsControl	EccPanel="1:1"
+														BlockParameters="{Binding Block, Source={StaticResource MasterData}}" 
+														FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_ButtonBlkItem" 
+														ItemsSpecification="FP_CMD_Reset#PicText#Reset#DimOut_Reset"/>
+                        </GroupBox>
+                    </Grid>
+                </TabItem>
+
+                <TabItem Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Tab.Timers}">
+                    <GroupBox Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Grp.Timers}">
+
+                        <EccFace:EccItemsControl	FlsBase:Info.EntrySymbolTemplate="AcesysV8.FP_Template_IOFieldEntryLine"
+													BlockParameters="{Binding Block, Source={StaticResource MasterData}}" 
+													CommonData="Language#Fls.Language.AcesysV8::Tab.Timers#Show_" 
+													ItemsSpecification="DelayStart;ReturnMon;DelayRun1;DelayRun2;DelayStop;StartWarn;ChangeDir"/>
+                    </GroupBox>
+                </TabItem>
+                <TabItem Visibility="{Binding Block[MdSelected].Value, Source={StaticResource MasterData}, Converter={FlsBase:ObjectToVisibility True, Collapsed}}" Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Tab.Motion}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <GroupBox Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Grp.MotionSel}">
+                            <EccFace:EccItemsControl	FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_RadioBitLine"
+																	BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+																	CommonData="Language#Show_"
+																	ItemsSpecification="MdOnOff;MdPuls"/>
+                        </GroupBox>
+                        <GroupBox Grid.Row="1" Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Grp.MotionSet}">
+                            <Grid Grid.IsSharedSizeScope="True">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <EccFace:EccContentControl FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_CheckBitLine"
+																BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+																CommonData="Language#Show_"
+																ItemSpecification="MdMaintain"/>
+
+                                <EccFace:EccItemsControl Margin="5" Grid.Row="1" Grid.IsSharedSizeScope="True" 
+																FlsBase:Info.EntrySymbolTemplate="AcesysV8.FP_Template_IOFieldEntryLine"
+																CommonData="Language#Fls.Language.AcesysV8::Tab.Timers#Show_" 
+																BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+																ItemsSpecification="SpeedMonOnDelay;SpeedMonOffDelay;SpeedMonTrigDelay;MdMinFreq"/>
+
+                                <EccFace:EccContentControl Margin="5" Grid.Row="2" 
+																FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_BlkValDesc"
+																BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+																CommonData="Language#Show_"
+																ItemSpecification="MdActFreq"/>
+                            </Grid>
+                        </GroupBox>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Tab.Starter}" Visibility="{Binding Block[StarterSelected].Value, Source={StaticResource MasterData}, Converter={FlsBase:ObjectToVisibility True, Collapsed}}">
+                    <GroupBox Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Grp.Starter}" Grid.Row="1">
+                        <EccFace:EccItemsControl Margin="5"
+														FlsBase:Info.EntrySymbolTemplate="AcesysV8.FP_Template_IOFieldEntryLine"
+														BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+														CommonData="Language#Fls.Language.AcesysV8::Tab.Starters#Show_" 
+														ItemsSpecification="LeaveFS;ReachLS;ReachFS"/>
+                    </GroupBox>
+                </TabItem>
+                <TabItem Name="Show_Analog_Tab" Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Tab.Analog}">
+                    <!--EccFace:BlockValueTextBox BlockItem="{Binding Block[AI1_min].Value, Source={StaticResource MasterData}}" Width="50"/-->
+                    <EccFace:EccContainerContentControl Container="{Binding ., Source={StaticResource MasterData}}" FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_AnalogTab"/>
+                </TabItem>
+                <TabItem Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Tab.PntPar}">
+                    <EccFace:EccContainerContentControl Container="{Binding ., Source={StaticResource MasterData}}" FlsBase:Info.MimicPartTemplate="Fls.Ecc.MP_PointInfo"/>
+                </TabItem>
+                <TabItem Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Tab.DeviceSim}" Visibility="{Binding Block[SIM_ACTIVE].Value, Source={StaticResource MasterData}, Converter={FlsBase:ObjectToVisibility True, Collapsed} ,FallbackValue=Visible}">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" Template="{DynamicResource ScrollViewerControl}">
+                        <Grid>
+                            <Grid.Resources>
+                                <DataTemplate x:Key="Sim">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="0.5*"/>
+                                            <ColumnDefinition Width="0.5*" x:Name="Extn"/>
+                                        </Grid.ColumnDefinitions>
+                                        <GroupBox Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Grp.Input}">
+                                            <EccFace:EccItemsControl	FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_DeviceSimLine"
+														BlockParameters="{Binding Block, Source={StaticResource MasterData}}" 
+														CommonData="ACESYS_#Sim_#Show_"
+														ItemsSpecification="RDY#RDY#Acesys.Ok#Acesys.Alarm;
+																			MCC#MCC#Acesys.Ok#Acesys.Alarm;
+																			OVL#OVL#Acesys.Ok#Acesys.Alarm;
+																			RET1#RET1#Acesys.On#Acesys.Stop;
+																			RET2#RET2#Acesys.On#Acesys.Stop;
+																			LSTR1#LSTR1#Acesys.On#Acesys.Off;
+																			LSTR2#LSTR2#Acesys.On#Acesys.Off;
+																			LSTP#LSTP#Acesys.On#Acesys.Off;
+																			REM#REM#Acesys.Ok#Acesys.Alarm;
+																			SSW#SSW#Acesys.Ok#Acesys.Alarm;
+																			MD#MD#Acesys.On#Acesys.Off;
+																			SFS#SFS#Acesys.On#Acesys.Off;
+																			SLS#SLS#Acesys.On#Acesys.Off;
+																			ES#ES#Acesys.On#Acesys.Off"/>
+                                        </GroupBox>
+
+                                        <GroupBox Grid.Column="1" Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Grp.ExIn}">
+                                            <EccFace:EccItemsControl FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_DeviceSimLine"
+														BlockParameters="{Binding Block, Source={StaticResource MasterData}}" 
+														CommonData="ACESYS_#Sim_#Show_"
+														ItemsSpecification="TFA#TFA#Acesys.Ok#Acesys.Alarm;
+																			DRDY#DRDY#Acesys.Ok#Acesys.Alarm;
+																			STALL#STALL#Acesys.Ok#Acesys.Alarm;
+																			EARTH#EARTH#Acesys.Ok#Acesys.Alarm;
+																			UBAL#UBAL#Acesys.Ok#Acesys.Alarm;
+																			GFA#GFA#Acesys.Ok#Acesys.Alarm;
+																			GWA#GWA#Acesys.Ok#Acesys.Warn;
+																			BUSF#BUSF#Acesys.Ok#Acesys.Alarm;
+																			DOPR#DOPR#Acesys.Ok#Acesys.Alarm;
+																			DTEST#DTEST#Acesys.Alarm#Acesys.Ok;
+																			ACK#ACK#Acesys.On#Acesys.Off"/>
+                                        </GroupBox>
+                                        <GroupBox Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Grp.Const}" Grid.Row="1" Grid.ColumnSpan="2">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="0.5*"/>
+                                                    <ColumnDefinition Width="0.5*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="Auto"/>
+                                                        <RowDefinition Height="{Binding Block[Type_Bimotor].Value, Source={StaticResource MasterData}, Converter={FlsBase:ObjectToBoolean true, {x:Static sys:Double.NaN}, 0, false}, FallbackValue=auto}"/>
+                                                        <RowDefinition Height="{Binding Block[StarterSelected].Value, Source={StaticResource MasterData}, Converter={FlsBase:ObjectToBoolean true, {x:Static sys:Double.NaN}, 0, false}, FallbackValue=auto}"/>
+                                                        <RowDefinition Height="*"/>
+                                                    </Grid.RowDefinitions>
+
+                                                    <EccFace:EccContentControl	FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_CheckBitLine"
+																BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+																CommonData="Language#Show_"
+																ItemSpecification="SIM_RET1_Constant"/>
+
+                                                    <EccFace:EccContentControl	Visibility="{Binding Block[Type_Bimotor].Value, Converter={FlsBase:ObjectToVisibility True, Collapsed}, Source={StaticResource MasterData}}"	Grid.Row="1" FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_CheckBitLine"
+																BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+																CommonData="Language#Show_"
+																ItemSpecification="SIM_RET2_Constant"/>
+
+                                                    <EccFace:EccItemsControl	Visibility="{Binding Block[StarterSelected].Value, Converter={FlsBase:ObjectToVisibility True, Collapsed}, Source={StaticResource MasterData}}"	Grid.Row="2" FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_CheckBitLine"
+																BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+																CommonData="Language#Show_"
+																ItemsSpecification="SIM_SFS_Constant;SIM_SLS_Constant"/>
+                                                </Grid>
+                                                <Grid Grid.Column="1" Visibility="{Binding Block[MdSelected].Value, Converter={FlsBase:ObjectToVisibility True, Collapsed}, Source={StaticResource MasterData}}">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="Auto"/>
+                                                        <RowDefinition Height="*"/>
+                                                    </Grid.RowDefinitions>
+                                                    <EccFace:EccItemsControl	FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_CheckBitLine"
+																BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+																ItemsSpecification="SIM_MD_Constant;Sim_MD_Pulses"	/>
+
+
+                                                </Grid>
+                                            </Grid>
+                                        </GroupBox>
+                                        <Control Name="SHOW_DRDY" IsEnabled="{Binding Block[SHOW_DRDY].Value, Source={StaticResource MasterData}, FallbackValue=False}"    Width="0" Height="0" />
+                                        <Control Name="SHOW_TFA" IsEnabled="{Binding Block[SHOW_TFA].Value, Source={StaticResource MasterData}, FallbackValue=False}"    Width="0" Height="0" />
+                                        <Control Name="SHOW_STALL" IsEnabled="{Binding Block[SHOW_STALL].Value, Source={StaticResource MasterData}, FallbackValue=False}"    Width="0" Height="0" />
+                                        <Control Name="SHOW_EARTH" IsEnabled="{Binding Block[SHOW_EARTH].Value, Source={StaticResource MasterData}, FallbackValue=False}"    Width="0" Height="0" />
+                                        <Control Name="SHOW_UBAL" IsEnabled="{Binding Block[SHOW_UBAL].Value, Source={StaticResource MasterData}, FallbackValue=False}"    Width="0" Height="0" />
+                                        <Control Name="SHOW_GFA" IsEnabled="{Binding Block[SHOW_GFA].Value, Source={StaticResource MasterData}, FallbackValue=False}"      Width="0" Height="0" />
+                                        <Control Name="SHOW_GWA" IsEnabled="{Binding Block[SHOW_GWA].Value, Source={StaticResource MasterData}, FallbackValue=False}"      Width="0" Height="0" />
+                                        <Control Name="SHOW_BUSF" IsEnabled="{Binding Block[SHOW_BUSF].Value, Source={StaticResource MasterData}, FallbackValue=False}"    Width="0" Height="0" />
+                                        <Control Name="SHOW_DOPR" IsEnabled="{Binding Block[SHOW_DOPR].Value, Source={StaticResource MasterData}, FallbackValue=False}"  Width="0" Height="0" />
+                                        <Control Name="SHOW_DTEST" IsEnabled="{Binding Block[SHOW_DTEST].Value, Source={StaticResource MasterData}, FallbackValue=False}"  Width="0" Height="0" />
+                                        <Control Name="SHOW_ACK" IsEnabled="{Binding Block[SHOW_ACK].Value, Source={StaticResource MasterData}, FallbackValue=Fals}"      Width="0" Height="0" />
+                                    </Grid>
+                                    <DataTemplate.Triggers>
+                                        <MultiDataTrigger>
+                                            <MultiDataTrigger.Conditions>
+                                                <Condition Binding="{Binding IsEnabled, ElementName=SHOW_TFA}" Value="False" />
+                                                <Condition Binding="{Binding IsEnabled, ElementName=SHOW_DRDY}" Value="False" />
+                                                <Condition Binding="{Binding IsEnabled, ElementName=SHOW_STALL}" Value="False" />
+                                                <Condition Binding="{Binding IsEnabled, ElementName=SHOW_EARTH}" Value="False" />
+                                                <Condition Binding="{Binding IsEnabled, ElementName=SHOW_UBAL}" Value="False" />
+                                                <Condition Binding="{Binding IsEnabled, ElementName=SHOW_GFA}" Value="False" />
+                                                <Condition Binding="{Binding IsEnabled, ElementName=SHOW_GWA}" Value="False" />
+                                                <Condition Binding="{Binding IsEnabled, ElementName=SHOW_BUSF}" Value="False" />
+                                                <Condition Binding="{Binding IsEnabled, ElementName=SHOW_DOPR}" Value="False" />
+                                                <Condition Binding="{Binding IsEnabled, ElementName=SHOW_DTEST}" Value="False" />
+                                                <Condition Binding="{Binding IsEnabled, ElementName=SHOW_ACK}" Value="False" />
+                                            </MultiDataTrigger.Conditions>
+                                            <Setter TargetName="Extn" Property="Width" Value="0" />
+                                        </MultiDataTrigger>
+                                    </DataTemplate.Triggers>
+                                </DataTemplate>
+                                <DataTemplate x:Key="NoSim">
+                                </DataTemplate>
+                                <Style x:Key="SimContentStyle" TargetType="ContentPresenter">
+                                    <Setter Property="ContentTemplate" Value="{StaticResource NoSim}"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Block[SIM_ACTIVE].Value, Source={StaticResource MasterData}, FallbackValue=False}" Value="True">
+                                            <Setter Property="ContentTemplate" Value="{StaticResource Sim}"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Grid.Resources>
+                            <ContentPresenter  Content="{Binding}" Style="{StaticResource SimContentStyle}"  />
+                        </Grid>
+
+                    </ScrollViewer>
+                </TabItem>
+                <TabItem Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Tab.Config}" Visibility="{Binding UserAccess.Claim, Converter={FlsBase:Claim Fls.AcesysV8, GeneralConfig, Visible, Collapsed}, FallbackValue=Visible}">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" Template="{DynamicResource ScrollViewerControl}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.5*"/>
+                                <ColumnDefinition Width="0.5*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <GroupBox Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Grp.UntTy}">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <EccFace:EccItemsControl	FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_RadioBitLine"
+														BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+														CommonData="Language#"
+														ItemsSpecification="Type_Unimotor;Type_Bimotor"	/>
+                                    <EccFace:EccContentControl	Grid.Row="1"
+														FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_CheckBitLine"
+														BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+														ItemSpecification="Type_Indication"	/>
+                                    <EccFace:EccContentControl	Grid.Row="2"
+														FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_CheckBitLine"
+														BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+														ItemSpecification="Sel_OutOfSevice"/>
+
+                                </Grid>
+                            </GroupBox>
+                            <GroupBox Grid.Column="1" Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Grp.StWarnEn}">
+                                <EccFace:EccItemsControl	FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_CheckBitLine"
+														BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+														ItemsSpecification="STW_Single;STW_Manual;STW_Autostart;STW_Local"/>
+                            </GroupBox>
+                            <GroupBox Grid.Row="1"  Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Grp.AlHand}">
+                                <EccFace:EccItemsControl	FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_CheckBitLine"
+														BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+														ItemsSpecification="WarningDrive;Sel_ParentSupress;Sel_ParentCollection"	/>
+                            </GroupBox>
+                            <GroupBox Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Grp.EnModes}">
+                                <EccFace:EccItemsControl	FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_CheckBitLine"
+														BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+														ItemsSpecification="En_Mode_Auto;En_Mode_Manual;En_Mode_Local;En_Mode_SS_FP;En_Mode_SS_Field;En_Mode_Test"/>
+                            </GroupBox>
+                            <GroupBox Grid.Row="2" Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Grp.EnFu}">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="{Binding Block[Type_Unimotor].Value, Converter={FlsBase:ObjectToBoolean true, {x:Static sys:Double.NaN}, 0, false}, Source={StaticResource MasterData}, FallbackValue=auto}"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <EccFace:EccContentControl	FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_CheckBitLine"
+														BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+														CommonData="Language"
+														ItemSpecification="MdSelected"/>
+                                    <EccFace:EccContentControl	Grid.Row="1" FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_CheckBitLine"
+														BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+														CommonData="Language"
+														ItemSpecification="StarterSelected"/>
+                                    <EccFace:EccContentControl	Grid.Row="2" FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_CheckBitLine"
+														BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+														CommonData="Language"
+														ItemSpecification="En_PB_Qstop"/>
+
+                                    <EccFace:EccContentControl	Grid.Row="3" FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_CheckBitLine"
+														BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+														CommonData="Language"
+														ItemSpecification="Show_PB_Reset"/>
+
+
+                                </Grid>
+                            </GroupBox>
+                            <GroupBox Grid.Row="3" Grid.Column="1" Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Grp.DisAnaVal}">
+                                <EccFace:EccItemsControl	FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_CheckBitLine"
+														BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+														ItemsSpecification="SHOW_AI1;SHOW_AI2;SHOW_AI3;SHOW_SP"/>
+                            </GroupBox>
+                            <GroupBox Grid.Row="3" Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Grp.InEn}">
+                                <EccFace:EccItemsControl	FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_CheckBitLine"
+														BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+														ItemsSpecification="Sel_INCH_Man;Sel_INCH_Loc"	/>
+                            </GroupBox>
+                            <GroupBox Grid.IsSharedSizeScope="True" Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Grp.DisIn}" Grid.Row="4" Grid.ColumnSpan="2" >
+                                <EccFace:EccItemsControl  FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_AlarmsUsed"
+														BlockParameters="{Binding Block, Source={StaticResource MasterData}}"
+														CommonData="ACESYS_#Show_"
+														BlockItemIndexPrefix="1"
+														ItemsSpecification="RDY;MCC;OVL;LSTP;REM;SSW;ES;TFA;DRDY;STALL;EARTH;UBAL;GFA;GWA;BUSF;DOPR;DTEST;ACK;ASTR" >
+                                    <ItemsControl.ItemsPanel >
+                                        <ItemsPanelTemplate >
+                                            <WrapPanel Orientation="Horizontal" >
+                                            </WrapPanel>
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+                                </EccFace:EccItemsControl>
+                            </GroupBox>
+                            <EccFace:EccContainerContentControl Grid.Row="5" Grid.ColumnSpan="2" Container="{Binding ., Source={StaticResource MasterData}}" FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_Ref_Manuals"/>
+                        </Grid>
+                    </ScrollViewer>
+                </TabItem>
+                <TabItem Header="Diag" Visibility="{Binding Block[Intell_Type].Value, Source={StaticResource MasterData}, Converter={FlsBase:CompareValues GE, VisibleColapsed, 1}, FallbackValue=Collapsed}" >
+                    <EccFace:EccContainerContentControl Container="{Binding ., Source={StaticResource MasterData}}" FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_AdaptDiagTab"/>
+                </TabItem>
+                <TabItem Header="{FlsBase:LangByCaption Fls.Language.AcesysV8::Tab.Info}">
+                    <EccFace:EccContainerContentControl Container="{Binding ., Source={StaticResource MasterData}}" FlsBase:Info.MimicPartTemplate="AcesysV8.FP_Template_InfoTab">
+                        <EccFace:EccContainerContentControl.Variables>
+                            <FlsBase:FlsCollection>
+                                <FlsBase:FlsTextValue Key="Siemens" Value="FB 210" />
+                                <FlsBase:FlsTextValue Key="Rockwell" Value="AsysMot2" />
+                                <FlsBase:FlsTextValue Key="ABB" Value="ACESYS__BIMOTOR" />
+                                <FlsBase:FlsTextValue Key="Schneider" Value="ACESYS_V80_MOTOR" />
+                            </FlsBase:FlsCollection>
+                        </EccFace:EccContainerContentControl.Variables>
+                    </EccFace:EccContainerContentControl>
+                </TabItem>
+            </TabControl>
+            <!--Data Triggers placeholders if BlockItems-->
+            <Control Name="Sel_INCH_Man" IsEnabled="{Binding Block[Sel_INCH_Man].Value, Source={StaticResource MasterData}, FallbackValue=Fals}"      Width="0" Height="0" />
+            <Control Name="MAN" IsEnabled="{Binding Block[MAN].Value, Source={StaticResource MasterData}, FallbackValue=Fals}"      Width="0" Height="0" />
+            <!--
+            <Control DataContext="{Binding ., Source={StaticResource MasterData}}" Name="INTL" IsEnabled="True"  Width="0" Height="0">
+                <Control.Triggers>
+                    <EventTrigger RoutedEvent="Loaded">
+                        <EventTrigger.Actions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <Int32AnimationUsingKeyFrames  Storyboard.TargetProperty="(FlsBase:Info.CommandPress)">
+                                        <DiscreteInt32KeyFrame KeyTime="{Binding Value, Source={FlsBase:Retrieve V8FP_LoadTime, AcesysV8.SiteSpecific}, FallbackValue=0:0:1}" Value="1" Storyboard.TargetProperty="(FlsBase:Info.CommandPress)" />
+                                    </Int32AnimationUsingKeyFrames>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger.Actions>
+                    </EventTrigger>
+                </Control.Triggers>
+            </Control>
+            -->
+            <Control Name="SHOW_AI1" IsEnabled="{Binding Block[SHOW_AI1].Value, Source={StaticResource MasterData}, FallbackValue=Fals}"      Width="0" Height="0" />
+            <Control Name="SHOW_AI2" IsEnabled="{Binding Block[SHOW_AI2].Value, Source={StaticResource MasterData}, FallbackValue=False}"      Width="0" Height="0" />
+            <Control Name="SHOW_AI3" IsEnabled="{Binding Block[SHOW_AI3].Value, Source={StaticResource MasterData}, FallbackValue=False}"      Width="0" Height="0" />
+            <Control Name="SHOW_SP" IsEnabled="{Binding Block[SHOW_SP].Value, Source={StaticResource MasterData}, FallbackValue=False}"      Width="0" Height="0" />
+            <Control Name="SHOW_DRDY" IsEnabled="{Binding Block[SHOW_DRDY].Value, Source={StaticResource MasterData}, FallbackValue=False}"    Width="0" Height="0" />
+            <Control Name="SHOW_TFA" IsEnabled="{Binding Block[SHOW_TFA].Value, Source={StaticResource MasterData}, FallbackValue=False}"    Width="0" Height="0" />
+            <Control Name="SHOW_STALL" IsEnabled="{Binding Block[SHOW_STALL].Value, Source={StaticResource MasterData}, FallbackValue=False}"    Width="0" Height="0" />
+            <Control Name="SHOW_EARTH" IsEnabled="{Binding Block[SHOW_EARTH].Value, Source={StaticResource MasterData}, FallbackValue=False}"    Width="0" Height="0" />
+            <Control Name="SHOW_UBAL" IsEnabled="{Binding Block[SHOW_UBAL].Value, Source={StaticResource MasterData}, FallbackValue=False}"    Width="0" Height="0" />
+            <Control Name="SHOW_GFA" IsEnabled="{Binding Block[SHOW_GFA].Value, Source={StaticResource MasterData}, FallbackValue=False}"      Width="0" Height="0" />
+            <Control Name="SHOW_GWA" IsEnabled="{Binding Block[SHOW_GWA].Value, Source={StaticResource MasterData}, FallbackValue=False}"      Width="0" Height="0" />
+            <Control Name="SHOW_BUSF" IsEnabled="{Binding Block[SHOW_BUSF].Value, Source={StaticResource MasterData}, FallbackValue=False}"    Width="0" Height="0" />
+            <Control Name="SHOW_DOPR" IsEnabled="{Binding Block[SHOW_DOPR].Value, Source={StaticResource MasterData}, FallbackValue=False}"  Width="0" Height="0" />
+            <Control Name="SHOW_DTEST" IsEnabled="{Binding Block[SHOW_DTEST].Value, Source={StaticResource MasterData}, FallbackValue=False}"  Width="0" Height="0" />
+            <Control Name="SHOW_ACK" IsEnabled="{Binding Block[SHOW_ACK].Value, Source={StaticResource MasterData}, FallbackValue=Fals}"      Width="0" Height="0" />
+        </Grid>
+    </Grid>
+
+    <DataTemplate.Triggers>
+
+        <MultiDataTrigger>
+            <MultiDataTrigger.Conditions>
+                <Condition Binding="{Binding IsEnabled, ElementName=Sel_INCH_Man}" Value="True" />
+                <Condition Binding="{Binding IsEnabled, ElementName=MAN}" Value="True" />
+            </MultiDataTrigger.Conditions>
+            <Setter TargetName="CmdUnimotorInching" Property="Visibility" Value="Visible" />
+            <Setter TargetName="CmdUnimotor" Property="Visibility" Value="Collapsed" />
+            <Setter TargetName="CmdBimotorInching" Property="Visibility" Value="Visible" />
+            <Setter TargetName="CmdBimotor" Property="Visibility" Value="Collapsed" />
+        </MultiDataTrigger>
+
+
+        <MultiDataTrigger>
+            <MultiDataTrigger.Conditions>
+                <Condition Binding="{Binding IsEnabled, ElementName=SHOW_AI1}" Value="False" />
+                <Condition Binding="{Binding IsEnabled, ElementName=SHOW_AI2}" Value="False" />
+                <Condition Binding="{Binding IsEnabled, ElementName=SHOW_AI3}" Value="False" />
+            </MultiDataTrigger.Conditions>
+            <Setter TargetName="Show_Analog_Tab" Property="Visibility" Value="Collapsed" />
+        </MultiDataTrigger>
+
+        <MultiDataTrigger>
+            <MultiDataTrigger.Conditions>
+                <Condition Binding="{Binding IsEnabled, ElementName=SHOW_AI1}" Value="False" />
+                <Condition Binding="{Binding IsEnabled, ElementName=SHOW_AI2}" Value="False" />
+                <Condition Binding="{Binding IsEnabled, ElementName=SHOW_AI3}" Value="False" />
+                <Condition Binding="{Binding IsEnabled, ElementName=SHOW_SP}" Value="False" />
+            </MultiDataTrigger.Conditions>
+            <Setter TargetName="AnalogValues" Property="Height" Value="0" />
+        </MultiDataTrigger>
+
+        <MultiDataTrigger>
+            <MultiDataTrigger.Conditions>
+                <Condition Binding="{Binding IsEnabled, ElementName=SHOW_TFA}" Value="False" />
+                <Condition Binding="{Binding IsEnabled, ElementName=SHOW_DRDY}" Value="False" />
+                <Condition Binding="{Binding IsEnabled, ElementName=SHOW_STALL}" Value="False" />
+                <Condition Binding="{Binding IsEnabled, ElementName=SHOW_EARTH}" Value="False" />
+                <Condition Binding="{Binding IsEnabled, ElementName=SHOW_UBAL}" Value="False" />
+                <Condition Binding="{Binding IsEnabled, ElementName=SHOW_GFA}" Value="False" />
+                <Condition Binding="{Binding IsEnabled, ElementName=SHOW_GWA}" Value="False" />
+                <Condition Binding="{Binding IsEnabled, ElementName=SHOW_BUSF}" Value="False" />
+                <Condition Binding="{Binding IsEnabled, ElementName=SHOW_DOPR}" Value="False" />
+                <Condition Binding="{Binding IsEnabled, ElementName=SHOW_DTEST}" Value="False" />
+                <Condition Binding="{Binding IsEnabled, ElementName=SHOW_ACK}" Value="False" />
+            </MultiDataTrigger.Conditions>
+            <Setter TargetName="Ext_Input" Property="Height" Value="0" />
+        </MultiDataTrigger>
+        <!--
+        <DataTrigger Binding="{Binding IsEnabled, ElementName=INTL}" Value="False">
+            <Setter TargetName="TabCtrl" Property="SelectedIndex" Value="1" />
+        </DataTrigger>
+        <DataTrigger Binding="{Binding Path=(FlsBase:Info.CommandPress), ElementName=INTL}" Value="1">
+            <Setter TargetName="INTL" Value="{Binding Block[INTL].Value, Mode=OneTime}" Property="IsEnabled" />
+        </DataTrigger>
+        -->
+    </DataTemplate.Triggers>
+</DataTemplate>
