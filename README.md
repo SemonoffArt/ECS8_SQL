@@ -1,6 +1,8 @@
-# Проект ECS8 SQL
+# Проект ECS8 SQL Helper
 
 Набор утилит в среде Jupyter Notebook для пусконаладки SCADA FLS ECS8.
+
+![Demo](resources/video/sql_get_put_txt.gif)
 
 ## Описание утилит
 
